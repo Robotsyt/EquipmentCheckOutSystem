@@ -1,4 +1,4 @@
-# 🚀 CEIS400 Week 2 Project – Equipment Checkout System (ECS)
+# 🚀 CEIS400 Course Project – Equipment Checkout System (ECS)
 
 Welcome to the collaborative project for CEIS400 – Software Engineering!  
 This repository showcases our Week 2 milestone: the **Equipment Checkout System (ECS)** – a software solution designed to modernize and streamline how organizations manage tools, equipment, and inventory in real time.
