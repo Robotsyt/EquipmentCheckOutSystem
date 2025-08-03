@@ -1,0 +1,121 @@
+﻿CertificationID,CertificationType,CertificationName,CertificationLevel
+0,Null,Null,Null
+1,Tool,Access Control / Key Control,Null
+2,Tool,Basic Hand Tool Safety,Null
+3,Tool,Basic Tester Operation,Null
+4,Tool,Basic Welding Safety,Null
+5,Tool,Digital Tool Operation,Null
+6,Tool,Fall Prevention,Null
+7,Tool,Fire Safety,Null
+8,Tool,HAZMat Hadling Certificate,Null
+9,Tool,Knife Safety,Null
+10,Tool,Power Tool Safety,Null
+11,Job,OSHA 10,Null
+12,Job,OSHA 30,Null
+13,Job,OSHA 40,Null
+14,Job,Certified Maintenance and Reliability Technician (CMRT),Null
+15,Job,Master Certified Electronics Technician (CET),Null
+16,Job,EPA HVAC Certification,Null
+17,Job,Electrical Technician Certification,Null
+18,Job,Certified Maintenance and Reliability Professional (CMRP),Null
+19,Job,Project Management Professional (PMP),Null
+20,Job,Certified Professional Maintenance Manager (CPMM),Null
+21,Job,Building Systems Maintenance Certificate (SMC),Null
+22,Job,Facilities Management Certificate (FMC),Null
+23,Job,Facility Management Professional (FMP),Null
+24,Job,Certified Facility Manager (CFM),Null
+25,Job,In-Building Public Safety Communications,Null
+26,Job,Electrical Power Testing,Null
+27,Job,Fire Alarm Systems,Null
+28,Job,Inspection and Testing of Fire Alarm Systems,Null
+29,Job,Inspection and Testing of Water-Based Systems,Null
+30,Job,Special Hazards Systems,Null
+31,Job,Water-Based Systems Layout,Null
+32,Job,Technologist certification,Null
+33,Job,Certified Lead Carpenter (CLC),Null
+34,Job,Journeyman Carpenter Certification,Null
+35,Job,Blueprint Reading,Null
+36,Job,Framing,Null
+37,Job,Finish Carpentry,Null
+38,Job,Building Codes,Null
+39,Job,Use of Tools and Equipment,Null
+40,Job,Certified Electrical Safety Compliance Professional (CESCP),Null
+41,Job,Master Electrician Certificate,Null
+42,Job,Certified Electrical Safety Worker (CESW),Null
+43,Job,Electrical Project Management Institute (EPMI) Certification,Null
+44,Job,Certified Electrical Safety Technician (CEST),Null
+45,Job,Journeyman Electrician License,Null
+46,Job,Certified Automation Professional (CAP),Null
+47,Job,LEED Green Associate,Null
+48,Job,Photovoltaic (PV) Installer Certification,Null
+49,Job,Certified Energy Manager (CEM),Null
+50,Job,Specialized Technique Certifications,Null
+51,Job,Painting Contractor Certification,Null
+52,Job,Lead Safety Certification,Null
+53,Job,Environmental Certifications,Null
+54,Job,Senior Certified Welding Inspector Certification,Null
+55,Job,Certification for Certified Welding Inspector,Null
+56,Job,Certified Associate Welding Inspector Certification,Null
+57,Job,Certification for Certified Welding Supervisor,Null
+58,Job,Certified Welder Certification,Null
+59,Job,Certification for Certified Welding Educator,Null
+60,Job,Certified Welding Engineer Certification,Null
+61,Job,Certification for Certified Welding Sales Representative,Null
+62,Job,Certified Radiographic Interpreter Certification,Null
+63,Job,Certification for Certified Robotic Arc Welding,Null
+64,Job,Journeyman Plumber Certification,Null
+65,Job,Master Plumber Certification,Null
+66,Job,Plumbing Inspector Certification,Null
+67,Job,Green Plumber Certification,Null
+68,Job,Backflow Prevention Certification,Null
+69,Job,ASSE 6010 Installers Certification,Null
+70,Job,ASSE 6020 Inspectors Certification,Null
+71,Job,ASSE 6040 Maintenance Personnel Certification,Null
+72,Job,Landscape Industry Certified Technician,Null
+73,Job,LIC Manager,Null
+74,Job,LIC Exterior Technician,Null
+75,Job,LIC Interior Technician,Null
+76,Job,LIC Horticultural Technician,Null
+77,Job,LIC Lawn Care Manager,Null
+78,Job,LIC Lawn Care Technician,Null
+79,Job,Certified Grounds Manager (CGM),Null
+80,Job,Certified Grounds Technician (CGT),Null
+81,Job,Certified Custodial Professional (CCP),Null
+82,Job,IWCA Certified Window Cleaner,Null
+83,Job,IWCA Safety Certified Technician,Null
+84,Job,IWCA Certified Water-Fed Operator,Null
+85,Job, IWCA Certified Rope Descent Technician,Null
+86,Job,HVAC Excellence Certification,Null
+87,Job,North American Technician Excellence (NATE) Certification,Null
+88,Job,Environmental Protection Agency (EPA) 608 Certification,Null
+89,Job,Universal R-410A Certification,Null
+90,Job,HVAC/R Certification,Null
+91,Job,Sheet Metal Certification (SMC),Null
+92,Job,National Inspection Testing and Certification (NITC),Null
+93,Job,Certified Alarm Technician (CAT) Level I,Null
+94,Job,Certified Alarm Technician (CAT) Level II,Null
+95,Job,Certified Fire Alarm Technician (CFAT),Null
+96,Job,Certified Fire Alarm Designer (CFAD),Null
+97,Job,Certified Intrusion Technician (CIT),Null
+98,Job,Certified Residential Fire Alarm Inspector (CRFAI),Null
+99,Job,Certified Security Sales (CSS),Null
+100,Job,Certified Security Systems Integrator (CSSI),Null
+101,Job,Certified Service Technician (CST),Null
+102,Job,Certified Systems Integrator (CSI),Null
+103,Job,Certified Video Technician (CVT),Null
+104,Job,Certified Security Project Manager (CSPM),Null
+105,Job,Associate Protection Professional (APP),Null
+106,Job,Certified Protection Professional (CPP),Null
+107,Job,Physical Security Professional (PSP),Null
+108,Job,Professional Certified Investigator (PCI),Null
+109,Job,National Association of Floor Covering Technicians (NAFCT),Null
+110,Job,Floor Technician Certifications,Null
+111,Job,Flooring Industry Certification,Null
+112,Job,Best Floor Technician Certifications,Null
+113,Job,Floor Care Technician (FCT),Null
+114,Job,Furniture Restoration Training,Null
+115,Job,General Pest Control Certifications,Null
+116,Job,Structural Pest Management,Null
+117,Job,Agricultural Pest Management,Null
+118,Job,Certified Accessibility and Private Residence Lift Technician (CAT) Program,Null
+119,Job,ALOA Certifications,Null
