@@ -1,0 +1,1 @@
+#Support class for roles like HR, Inspector, Admin
