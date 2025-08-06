@@ -1,0 +1,52 @@
+﻿SiteID,Building,FloorLevel,Room
+1,Office Bldg A,Ground,Lobby
+2,Office Bldg A,Ground,Office 1
+3,Office Bldg A,Ground,Office 2
+4,Office Bldg A,Ground,Bathroom 1
+5,Office Bldg A,Ground,Bathroom 2
+6,Office Bldg A,Second,Office 1
+7,Office Bldg A,Second,Office 2
+8,Office Bldg A,Second,Bathroom 1
+9,Office Bldg A,Second,Bathroom 2
+10,Office Bldg A,Third,Office 1
+11,Office Bldg A,Third,Office 2
+12,Office Bldg A,Third,Bathroom 1
+13,Office Bldg A,Third,Bathroom 2
+14,Office Bldg A,Basement,Utility Room
+15,Office Bldg A,Basement,Server Room
+16,Office Bldg A,Basement,Security Room
+17,Office Bldg A,External,N/A
+18,Office Bldg B,Ground,Lobby
+19,Office Bldg B,Ground,Office 1
+20,Office Bldg B,Ground,Office 2
+21,Office Bldg B,Ground,Bathroom 1
+22,Office Bldg B,Ground,Bathroom 2
+23,Office Bldg B,Second,Office 1
+24,Office Bldg B,Second,Office 2
+25,Office Bldg B,Second,Bathroom 1
+26,Office Bldg B,Second,Bathroom 2
+27,Office Bldg B,Third,Office 1
+28,Office Bldg B,Third,Office 2
+29,Office Bldg B,Third,Bathroom 1
+30,Office Bldg B,Third,Bathroom 2
+31,Office Bldg B,Basement,Utility Room
+32,Office Bldg B,Basement,Server Room
+33,Office Bldg B,Basement,Security Room
+34,Office Bldg B,External,N/A
+35,Office Bldg C,Ground,Lobby
+36,Office Bldg C,Ground,Office 1
+37,Office Bldg C,Ground,Office 2
+38,Office Bldg C,Ground,Bathroom 1
+39,Office Bldg C,Ground,Bathroom 2
+40,Office Bldg C,Second,Office 1
+41,Office Bldg C,Second,Office 2
+42,Office Bldg C,Second,Bathroom 1
+43,Office Bldg C,Second,Bathroom 2
+44,Office Bldg C,Third,Office 1
+45,Office Bldg C,Third,Office 2
+46,Office Bldg C,Third,Bathroom 1
+47,Office Bldg C,Third,Bathroom 2
+48,Office Bldg C,Basement,Utility Room
+49,Office Bldg C,Basement,Server Room
+50,Office Bldg C,Basement,Security Room
+51,Office Bldg C,External,N/A
