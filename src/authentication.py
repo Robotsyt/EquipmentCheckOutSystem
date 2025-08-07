@@ -1,0 +1,1 @@
+#needs to validate assoicate ID and Equipment ID for each associate
