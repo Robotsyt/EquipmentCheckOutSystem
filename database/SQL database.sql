@@ -141,6 +141,7 @@ CREATE TABLE IF NOT EXISTS Tool (
   EquipmentID BIGINT NOT NULL,
   ToolSpecifics VARCHAR(100) NOT NULL,
   ToolID INT NOT NULL,
+  Price DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (EquipmentToolID),
   FOREIGN KEY (EquipmentID) REFERENCES Equipment(EquipmentID)
   );
@@ -414,4 +415,84 @@ INTO TABLE MaterialLocations
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;  
- 
+
+CREATE TABLE IF NOT EXISTS TransactionTypes (
+  TransTypeID INT,
+  TransType VARCHAR(15),
+  PRIMARY KEY (TransTypeID)
+  );
+
+LOAD DATA INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/TransactionTypes.csv"
+INTO TABLE TransactionTypes
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;  
+
+CREATE TABLE IF NOT EXISTS Location (
+  LocationID INT,
+  WarehouseID BIGINT,
+  ToolRoomID BIGINT, 
+  ToolBoxJobID INT,
+  SiteID INT,
+  PRIMARY KEY (LocationID),
+  FOREIGN KEY (ToolRoomID) REFERENCES ToolRoom(ToolRoomID),
+  FOREIGN KEY (WarehouseID) REFERENCES Warehouse(WarehouseID),
+  FOREIGN KEY (ToolBoxJobID) REFERENCES ToolBox(ToolBoxJobID),
+  FOREIGN KEY (SiteID) REFERENCES Site(SiteID)
+  );
+  
+CREATE TABLE IF NOT EXISTS TempLocation (
+  LocationID INT,
+  WarehouseID BIGINT NULL DEFAULT NULL,
+  ToolRoomID BIGINT NULL DEFAULT NULL, 
+  ToolBoxJobID INT NULL DEFAULT NULL,
+  SiteID INT NULL DEFAULT NULL
+);
+
+LOAD DATA INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Location.csv"
+INTO TABLE TempLocation
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(LocationID, @WarehouseID, @ToolRoomID, @ToolBoxJobID, @SiteID)
+SET
+WarehouseID = CASE @WarehouseID WHEN 0 THEN NULL ELSE @WarehouseID END,
+ToolRoomID = CASE @ToolRoomID WHEN 0 THEN NULL ELSE @ToolRoomID END,
+ToolBoxJobID = CASE @ToolBoxJobID WHEN 0 THEN NULL ELSE @ToolBoxJobID END,
+SiteID = CASE @SiteID WHEN 0 THEN NULL ELSE @SiteID END;
+
+INSERT INTO Location (LocationID, WarehouseID, ToolRoomID, ToolBoxJobID, SiteID)
+SELECT 
+  CAST(LocationID AS SIGNED),
+  CAST(WarehouseID AS SIGNED),
+  CAST(ToolRoomID AS SIGNED),
+  CAST(ToolBoxJobID AS SIGNED),
+  CAST(SiteID AS SIGNED)
+FROM TempLocation;
+
+CREATE TABLE IF NOT EXISTS Transactions (
+  TransactionID BIGINT NOT NULL,
+  EmployeeID INT NOT NULL,
+  EquipToolItemID BIGINT,
+  MaterialID INT,
+  FromLocationID INT,
+  ToLocationID INT,
+  TransTypeID INT,
+  TransactionDate DATETIME,
+  WorkOrderID INT,
+  PRIMARY KEY (TransactionID),
+  FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID),
+  FOREIGN KEY (EquipToolItemID) REFERENCES Item(EquipToolItemID),
+  FOREIGN KEY (MaterialID) REFERENCES Materials(MaterialID),
+  FOREIGN KEY (FromLocationID) REFERENCES Location(LocationID),
+  FOREIGN KEY (ToLocationID) REFERENCES Location(LocationID),
+  FOREIGN KEY (TransTypeID) REFERENCES TransactionTypes(TransTypeID),
+  FOREIGN KEY (WorkOrderID) REFERENCES WorkOrder(WorkOrderID)
+  );
+
+LOAD DATA INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Transactions.csv"
+INTO TABLE Transactions
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;  
+
