@@ -1,3 +1,7 @@
+#Use this calls to build out the associate class and ID's
+import csv
+import pandas as pd
+
 # Add a function to get employee info by ID
 def get_employee_by_id(pin):
     new_list = load_data('database/Employee.csv')
@@ -9,9 +13,12 @@ def get_employee_by_id(pin):
                 'last_name': row[2] if len(row) > 2 else None
             }
     return None
-#Use this calls to build out the associate class and ID's
-import csv
-import pandas as pd
+
+#Validate the associate ID VS there job level => the main.py to validate before menu interaction
+#include job_level and Skill_level
+
+
+
 
 #load_date function to read the employee.csv file to upload in my_list array to store each variable row and pulled later in new_list[]
 def load_data(filename):
@@ -23,8 +30,11 @@ def load_data(filename):
         for row in identify_data:
             my_list.append(row)
         return my_list
-    
+
+
 new_list = load_data('database/Employee.csv')  #calls load_data function to store the data in a list
+
+
 def id_validate():
     id = input("Enter your personel ID: ")  # Example pin, replace with actual value as needed
     pin = int(id)

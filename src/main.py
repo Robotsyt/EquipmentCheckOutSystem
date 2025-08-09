@@ -4,15 +4,23 @@ import os
 import associate as assoc
 from datetime import datetime
 
+
+
+
+#changed datetime to exclude miliseconds
 original_datetime = datetime.now()
 formatted_datetime = original_datetime.strftime('%m-%d-%Y \n%H:%M')
+
+
 # need multi level UI for job levels 5-7, 4, 1-3
+
+
 os.system('cls' if os.name == 'nt' else 'clear')
 
 #defining the main UI 
 def main_menu(associate_id, first_name, last_name):
     while True:
-        time.sleep(2)
+        time.sleep(0)
         os.system('cls' if os.name == 'nt' else 'clear')
         print(formatted_datetime)
         print("===| Job Level Menu |===")
@@ -64,7 +72,7 @@ def main_menu(associate_id, first_name, last_name):
 
 def maintenance(associate_id, first_name, last_name):
     while True:
-        time.sleep(2)
+        time.sleep(1)
         os.system('cls' if os.name == 'nt' else 'clear')
         print(formatted_datetime)
         print("===| Maintenance |===")
@@ -85,6 +93,49 @@ def maintenance(associate_id, first_name, last_name):
     else:
         print("\nInput cancelled or not available. Exiting program.")
 
+
+#HR function
+def hr():
+    # add employee
+    # remove employee
+    # 
+    #
+    pass
+
+#finance function
+def finance():
+    pass
+#Auditor function
+def auditor():
+    pass
+#Safety Function
+def safety():
+    pass
+#Project manager function
+def project_manager():
+    pass
+#Administration function
+def administration():
+    # live status of checked out equipment 
+    # email print out 
+    pass
+#Procurement Function
+def procurement():
+    pass
+#Warehouse function
+def warehouse():
+    pass
+#Equipment Function
+def equipment():
+    pass
+#info_tech function
+def info_tech():
+    # All menu functions
+    pass
+#other Function
+def other():
+    #other employees as clock in or clock out
+    pass
 
 #program call to start
 if __name__ == "__main__":
