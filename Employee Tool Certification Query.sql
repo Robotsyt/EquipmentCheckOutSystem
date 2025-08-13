@@ -1,0 +1,5 @@
+SELECT Employee_Certifications.EmployeeID, Employee_Certifications.CertificationID, CertificationTools.CertificationID, CertificationTools.EquipmentToolID
+FROM Employee_Certifications
+INNER JOIN CertificationTools ON Employee_Certifications.CertificationID = CertificationTools.CertificationID
+
+-- Individual tools are different then tool types for proper function reference EquipmentToolID not EquipToolItemID
