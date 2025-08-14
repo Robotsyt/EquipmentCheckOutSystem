@@ -96,45 +96,172 @@ def maintenance(associate_id, first_name, last_name):
 
 #HR function
 def hr():
-    # add employee
-    # remove employee
-    # 
-    #
-    pass
+    while True:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| HR |===")
+        print("1.  Add Employee")
+        print("2.  Remove Employee")
+        print("3.  Update Employee information")
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
+    
 
 #finance function
 def finance():
-    pass
+    while True:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| Finance |===")
+        print("1.  Clock out")
+        print("2.  Lost and Damage Equipment Report")
+        print("3.  Equipment Price Checker")
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
+    
 #Auditor function
 def auditor():
-    pass
+    while True:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| Auditor |===")
+        print("1.  Clock out")
+        print("2.  Generate All Reports")
+        
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
 #Safety Function
 def safety():
+    while True:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| Safety |===")
+        print("1.  Clock out")
+        print("2.  Certificate Employee Update") #Certificate update for empoyee
+        print("3.  Certificate Equipment Update")
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
     pass
 #Project manager function
 def project_manager():
-    pass
+    while True:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| Manager |===")
+        print("1.  Clock out")
+        print("2.  Generate All Reports")
+        
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
+    
 #Administration function
 def administration():
-    # live status of checked out equipment 
-    # email print out 
-    pass
+    while True:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| Admin |===")
+        print("1.  Check out")
+        print("2.  Live Status Report")
+        print("3.  Email report")
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
+    
 #Procurement Function
 def procurement():
-    pass
+    while True:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| Procurement |===")
+        print("1.  Check out")
+        print("2.  Inventory Report")
+        print("3.  Update Inventory tools/equipment")
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
+    
 #Warehouse function
 def warehouse():
-    pass
+    while True:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| Warehouse |===")
+        print("1.  Check out")
+        print("2.  Materials Status Update")
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
 #Equipment Function
 def equipment():
-    pass
+    while True:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| Tool Room |===")
+        print("1.  Check out")
+        print("2.  Equipment Status Update")
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
+
+
+
+
 #info_tech function
 def info_tech():
     # All menu functions
     pass
+
+
+
+
+
+
 #other Function
 def other():
-    #other employees as clock in or clock out
+    while True:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| Temporary Contract |===")
+        print("1.  Check out")
+        print("2.  Work Order")
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
     pass
 
 #program call to start

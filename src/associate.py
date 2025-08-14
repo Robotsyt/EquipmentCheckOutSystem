@@ -31,6 +31,8 @@ def load_data(filename):
         for row in identify_data:
             my_list.append(row)
         return my_list
+    
+
 
 
 new_list = load_data('database/Employee.csv')  #calls load_data function to store the data in a list
@@ -50,15 +52,14 @@ def id_validate():
             associate_id = row[0]
             first_name = row[1] if len(row) > 1 else None   #index 1 of the csv file 
             last_name = row[2] if len(row) > 2 else None    #index 2 of the csv file
-            print(f"Name: {first_name} {last_name} ID: {associate_id}") #printing the associate name and id
-            print(f"Employee has now been clocked in.")
-        else:
-            print("Pin (Employee ID) not found in employee list.")
-            print("Retry employee Identification number without any zeros.")
-            sys.exit() #to force quit the application if the pin doesn't match any ID 
-             
+            if id == associate_id:
+                print(f"Name: {first_name} {last_name} ID: {associate_id}") #printing the associate name and id
+                print(f"Employee has now been clocked in.")
+            else:
+                print("Pin (Employee ID) not found in employee list.")
+                print("Retry employee Identification number without any zeros.")
+                sys.exit() #to force quit the application if the pin doesn't match any ID 
+                
     return associate_id, first_name, last_name
     associate_id, first_name, last_name = id_validate()
 # information that needs to be pushed to main.py
-def tool():
-    pass
