@@ -20,7 +20,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 #defining the main UI 
 def main_menu(associate_id, first_name, last_name):
     while True:
-        time.sleep(0)
+        time.sleep(3)
         os.system('cls' if os.name == 'nt' else 'clear')
         print(formatted_datetime)
         print("===| Job Level Menu |===")

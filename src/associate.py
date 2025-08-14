@@ -1,6 +1,7 @@
 #Use this calls to build out the associate class and ID's
 import csv
 import pandas as pd
+import sys
 
 # Add a function to get employee info by ID
 def get_employee_by_id(pin):
@@ -49,13 +50,15 @@ def id_validate():
             associate_id = row[0]
             first_name = row[1] if len(row) > 1 else None   #index 1 of the csv file 
             last_name = row[2] if len(row) > 2 else None    #index 2 of the csv file
-            break
+            print(f"Name: {first_name} {last_name} ID: {associate_id}") #printing the associate name and id
+            print(f"Employee has now been clocked in.")
+        else:
+            print("Pin (Employee ID) not found in employee list.")
+            print("Retry employee Identification number without any zeros.")
+            sys.exit() #to force quit the application if the pin doesn't match any ID 
+             
     return associate_id, first_name, last_name
     associate_id, first_name, last_name = id_validate()
-    if found:
-        print(f"Name: {first_name} {last_name} ID: {associate_id}") #printing the associate name and id
-        print(f"Employee has now been clocked in.")
-    else:
-        print("Pin (Employee ID) not found in employee list.")
-        print("Retry employee Identification number without any zeros.")
 # information that needs to be pushed to main.py
+def tool():
+    pass
