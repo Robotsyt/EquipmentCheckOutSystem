@@ -1,8 +1,9 @@
 #main file for selection system
 import time
 import os
+import loader
 import associate as assoc
-import reports
+#import Reports
 from datetime import datetime
 
 
@@ -69,10 +70,7 @@ def main_menu(associate_id, first_name, last_name):
     elif input_value == "11":
         info_tech()
     elif input_value == "12":
-        other()  
-    elif input_value == "13":
-        reports.reports_menu()
-                        
+        other()                       
     else:
         print("Invalid selection. Please try again.")
         input("Press Enter to continue ...")
@@ -108,13 +106,22 @@ def hr():
         os.system('cls' if os.name == 'nt' else 'clear')
         print(formatted_datetime)
         print("===| HR |===")
-        print("1.  Add Employee")
-        print("2.  Remove Employee")
-        print("3.  Update Employee information")
+        print("1.  Clock Out")
+        print("2.  Add Employee")
+        print("3.  Remove Employee")
+        print("4.  Update Employee information")
         try:
             input_value = input("Select an option: ")
-            if input_value == "1":
+            if input_value == '1':
+                print(f"{first_name} {last_name} has clocked out for the day.")
+            elif input_value == "2":
                 loader.add_employee()
+            elif input_value == '3':
+                loader.remove_employee()
+            elif input_value == '4':
+                loader.update_employee()
+            else:
+                print("\nInput cancelled or not available. Exiting program.")
     
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
@@ -133,6 +140,14 @@ def finance():
         print("3.  Equipment Price Checker")
         try:
             input_value = input("Select an option: ")
+            if input_value == "1":
+                print(f"{first_name} {last_name} has clocked out for the day.")
+            elif input_value == '2':
+                loader.lost_damage()
+            elif input_value == '3':
+                loader.equipment_price()
+            else:
+                print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
@@ -149,11 +164,15 @@ def auditor():
         
         try:
             input_value = input("Select an option: ")
+            if input_value == "1":
+                print(f"{first_name} {last_name} has clocked out for the day.")
+            elif input_value == '2':
+                Reports.reports_menu()
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
 #Safety Function
-def safety():
+def safety(): #clayton
     while True:
         time.sleep(1)
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -164,6 +183,14 @@ def safety():
         print("3.  Certificate Equipment Update")
         try:
             input_value = input("Select an option: ")
+            if input_value == "1":
+                print(f"{first_name} {last_name} has clocked out for the day.")
+            elif input_value == '2':
+                loader.certificate_employee()
+            elif input_value == '3':
+                loader.certificate_equipment()
+            else: 
+                print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
@@ -180,6 +207,12 @@ def project_manager():
         
         try:
             input_value = input("Select an option: ")
+            if input_value == "1":
+                print(f"{first_name} {last_name} has clocked out for the day.")
+            elif input_value == '2':
+                Reports.reports_menu()
+            else:
+                print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
@@ -196,12 +229,20 @@ def administration():
         print("3.  Email report")
         try:
             input_value = input("Select an option: ")
+            if input_value == "1":
+                print(f"{first_name} {last_name} has clocked out for the day.")
+            elif input_value == "2":
+                Reports.reports_menu()
+            elif input_value == "3":
+                Reports.reports_menu()
+            else: 
+                print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
     
 #Procurement Function
-def procurement():
+def procurement(): #clatyton
     while True:
         time.sleep(1)
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -212,6 +253,14 @@ def procurement():
         print("3.  Update Inventory tools/equipment")
         try:
             input_value = input("Select an option: ")
+            if input_value == "1":
+                print(f"{first_name} {last_name} has clocked out for the day.")
+            elif input_value == "2":
+                Reports.reports_menu()
+            elif input_value == "3":
+                loader.inventory_tool()
+            else:    
+                print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
@@ -227,6 +276,10 @@ def warehouse():
         print("2.  Materials Status Update")
         try:
             input_value = input("Select an option: ")
+            if input_value == "1":
+                print(f"{first_name} {last_name} has clocked out for the day.")
+            elif input == '2':
+                loader.material_update()
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
@@ -241,6 +294,10 @@ def equipment():
         print("2.  Equipment Status Update")
         try:
             input_value = input("Select an option: ")
+            if input_value == "1":
+                print(f"{first_name} {last_name} has clocked out for the day.")
+            elif input == '2':
+                loader.equipment_status()
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 

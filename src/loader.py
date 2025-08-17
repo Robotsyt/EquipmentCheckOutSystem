@@ -1,16 +1,35 @@
-
-
 ## importing necessary libraries
-import mysql.connector
+#import mysql.connector
+import time
+
+#Funciton to update employee for hr function
+def update_employee():
+    id_update = input("Enter the id of the employee: ")
+    print('Id for associate : '+ id_update)
+
+def lost_damage(): #report for finance
+    pass
+def equipment_price():#report for all prices of equipment
+    pass
+def certificate_employee():# update employee certifications
+    pass
+def certificate_equipment():# Update equipment certification requirements
+    pass
+def inventory_tool(): # Update amounts of inventory tools or equipment
+    pass
+def material_update(): # print out inventory of materials on hand
+    pass
+def equipment_status(): # Print out users currently on the clock and equipment checked out
+    pass
 
 
 ## this is the connection to the database
-mydb = mysql.connector.connect(
+#mydb = mysql.connector.connect(
     host="localhost",
     user="yourusername",
     password="yourpassword",
     database="yourdatabase"
-)
+#)
 
 
 ## creating a function that adds an employee to the database##
