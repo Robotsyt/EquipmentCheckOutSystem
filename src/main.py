@@ -2,6 +2,7 @@
 import time
 import os
 import associate as assoc
+import reports
 from datetime import datetime
 
 
@@ -36,6 +37,8 @@ def main_menu(associate_id, first_name, last_name):
         print("10. Equipment")
         print("11. IT")
         print("12. Other")
+        print("13. Reports")  
+
         try:
             input_value = input("Select an option: ")
         except (EOFError, KeyboardInterrupt):
@@ -65,7 +68,10 @@ def main_menu(associate_id, first_name, last_name):
     elif input_value == "11":
         info_tech()
     elif input_value == "12":
-        other()                      
+        other()  
+    elif input_value == "13":
+        reports.reports_menu()
+                        
     else:
         print("Invalid selection. Please try again.")
         input("Press Enter to continue ...")
