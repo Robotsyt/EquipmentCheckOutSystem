@@ -7,6 +7,7 @@ from datetime import datetime
 
 
 
+
 #changed datetime to exclude miliseconds
 original_datetime = datetime.now()
 formatted_datetime = original_datetime.strftime('%m-%d-%Y \n%H:%M')
@@ -106,6 +107,9 @@ def hr():
         print("3.  Update Employee information")
         try:
             input_value = input("Select an option: ")
+            if input_value == "1":
+                loader.add_employee()
+    
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 

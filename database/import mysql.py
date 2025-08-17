@@ -1,10 +1,14 @@
-import mysql.connector #for mysql
 
+
+## import mysql.connector to bring sql functions to this python file
+import mysql.connector #for mysql
+import cursor as cursor #for cursor functions
+## this is the connection to the database
 mydb = mysql.connector.connect(
     host="localhost",
     user="yourusername",
     password="yourpassword",
-    database=yourdatabase" # Optional
+    database="yourdatabase" # Optional
 )
 
 #Cursor Examples
@@ -18,7 +22,7 @@ cursor.execute("DELETE FROM table_name WHERE (column_name = input)")
 #Alter info
 sql = "UPDATE table_name SET column_name = %s WHERE column_name = %s"
 value = ("column1value", "column2parameter")
-mycursor.execute(sql, value)
+cursor.execute(sql, value)
 #Add to quantity in database
 item_name = "materialname"
 quantity = #
@@ -47,3 +51,4 @@ mydb.commit()
 #close connection
 cursor.close()
 mydb.close()
+
