@@ -2,6 +2,7 @@
 import time
 import os
 import loaders
+import sys
 import associate as assoc
 import reports
 from datetime import datetime
@@ -54,10 +55,12 @@ def pull_menu(associate_id, first_name, last_name):
             info_tech()
         elif associate_id == 112:
             other()
-        else:
+        elif associate_id >= 113:
             print("\n Employee needs to seek HR. Please contact them right away.")
             time.sleep(3)
-
+        else:
+            print("\nInput cancelled or not available. Exiting program.")
+            sys.exit()
 def maintenance():
     while True:
         time.sleep(1)
