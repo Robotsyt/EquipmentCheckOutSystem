@@ -14,7 +14,7 @@ This system isn't just about automation — it’s about control, transparency, 
 ---
 
 ## Important 
-You will need to pip install Pandas!
+Have Fun!!
 
 ---
 
