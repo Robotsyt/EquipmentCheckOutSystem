@@ -1,9 +1,9 @@
 #main file for selection system
 import time
 import os
-import loader
+import loaders
 import associate as assoc
-#import Reports
+import reports
 from datetime import datetime
 
 
@@ -21,61 +21,44 @@ formatted_datetime = original_datetime.strftime('%m-%d-%Y \n%H:%M')
 os.system('cls' if os.name == 'nt' else 'clear')
 
 #defining the main UI 
-def main_menu(associate_id, first_name, last_name):
-    while True:
-        time.sleep(3)
+def pull_menu(associate_id, first_name, last_name):
+    
+        time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
         print(formatted_datetime)
-        print("===| Job Level Menu |===")
-        print("1.  Maintenance")
-        print("2.  HR")
-        print("3.  Finance")
-        print("4.  Auditor/Compliance")
-        print("5.  Safety")
-        print("6.  Project Manager")
-        print("7.  Administration")
-        print("8.  Procurement")
-        print("9.  Warehouse")
-        print("10. Equipment")
-        print("11. IT")
-        print("12. Other")
-        print("13. Reports")  
+        print(f"Configuring Employee Job Type Menu for id {associate_id} ....")
+        time.sleep(2)
+        print(f"Taking you to {first_name} {last_name} menu")
 
-        try:
-            input_value = input("Select an option: ")
-        except (EOFError, KeyboardInterrupt):
-            print("\nInput cancelled or not available. Exiting program.")
-        break
+        if associate_id >= 0 and associate_id <= 31:
+            maintenance()
+        elif associate_id >= 32 and associate_id <= 37:
+            hr()
+        elif associate_id >= 38 and associate_id <= 42:
+            finance()
+        elif associate_id >= 43 and associate_id <= 45:
+            auditor()
+        elif associate_id >= 46 and associate_id <= 52:
+            safety()
+        elif associate_id >= 53 and associate_id <= 56:
+            project_manager()
+        elif associate_id >= 57 and associate_id <= 68:
+            administration()
+        elif associate_id >= 69 and associate_id <= 76:
+            procurement()
+        elif associate_id >= 76 and associate_id <= 100:
+            warehouse()
+        elif associate_id >= 101 and associate_id <= 105:
+            equipment()
+        elif associate_id >= 106 and associate_id <= 111:
+            info_tech()
+        elif associate_id == 112:
+            other()
+        else:
+            print("\n Employee needs to seek HR. Please contact them right away.")
+            time.sleep(3)
 
-    if input_value == "1":
-        maintenance(associate_id, first_name, last_name)                 
-    elif input_value == "2":
-        hr()              
-    elif input_value == "3":
-        finance()           #
-    elif input_value == "4":
-        auditor()
-    elif input_value == "5":
-        safety()
-    elif input_value == "6":
-        project_manager()
-    elif input_value == "7":
-        administration()
-    elif input_value == "8":
-        procurement()
-    elif input_value == "9":
-        warehouse()  
-    elif input_value == "10":
-        equipment()
-    elif input_value == "11":
-        info_tech()
-    elif input_value == "12":
-        other()                       
-    else:
-        print("Invalid selection. Please try again.")
-        input("Press Enter to continue ...")
-
-def maintenance(associate_id, first_name, last_name):
+def maintenance():
     while True:
         time.sleep(1)
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -115,11 +98,11 @@ def hr():
             if input_value == '1':
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input_value == "2":
-                loader.add_employee()
+                loaders.add_employee()
             elif input_value == '3':
-                loader.remove_employee()
+                loaders.remove_employee()
             elif input_value == '4':
-                loader.update_employee()
+                loaders.update_employee()
             else:
                 print("\nInput cancelled or not available. Exiting program.")
     
@@ -143,9 +126,9 @@ def finance():
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input_value == '2':
-                loader.lost_damage()
+                loaders.lost_damage()
             elif input_value == '3':
-                loader.equipment_price()
+                loaders.equipment_price()
             else:
                 print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
@@ -167,7 +150,7 @@ def auditor():
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input_value == '2':
-                Reports.reports_menu()
+                reports.auditor_report()
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
@@ -186,9 +169,9 @@ def safety(): #clayton
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input_value == '2':
-                loader.certificate_employee()
+                loaders.certificate_employee()
             elif input_value == '3':
-                loader.certificate_equipment()
+                loaders.certificate_equipment()
             else: 
                 print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
@@ -210,7 +193,7 @@ def project_manager():
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input_value == '2':
-                Reports.reports_menu()
+                reports.reports_menu()
             else:
                 print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
@@ -232,9 +215,9 @@ def administration():
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input_value == "2":
-                Reports.reports_menu()
+                reports.live_reports()
             elif input_value == "3":
-                Reports.reports_menu()
+                reports.email_report()
             else: 
                 print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
@@ -256,9 +239,9 @@ def procurement(): #clatyton
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input_value == "2":
-                Reports.reports_menu()
+                reports.inventory_reports_menu()
             elif input_value == "3":
-                loader.inventory_tool()
+                loaders.inventory_tool()
             else:    
                 print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
@@ -279,7 +262,9 @@ def warehouse():
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input == '2':
-                loader.material_update()
+                loaders.material_update()
+            else:
+                print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
@@ -297,7 +282,9 @@ def equipment():
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input == '2':
-                loader.equipment_status()
+                loaders.equipment_status()
+            else:
+                print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
@@ -307,8 +294,58 @@ def equipment():
 
 #info_tech function
 def info_tech():
-    # All menu functions
-    pass
+    while True:
+        time.sleep(3)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(formatted_datetime)
+        print("===| IT |===")
+        print("1.  Maintenance")
+        print("2.  HR")
+        print("3.  Finance")
+        print("4.  Auditor/Compliance")
+        print("5.  Safety")
+        print("6.  Project Manager")
+        print("7.  Administration")
+        print("8.  Procurement")
+        print("9.  Warehouse")
+        print("10. Equipment")
+        print("11. IT")
+        print("12. Other")
+         
+
+        try:
+            input_value = input("Select an option: ")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break
+
+    if input_value == "1":
+        maintenance()                 
+    elif input_value == "2":
+        hr()              
+    elif input_value == "3":
+        finance()           #
+    elif input_value == "4":
+        auditor()
+    elif input_value == "5":
+        safety()
+    elif input_value == "6":
+        project_manager()
+    elif input_value == "7":
+        administration()
+    elif input_value == "8":
+        procurement()
+    elif input_value == "9":
+        warehouse()  
+    elif input_value == "10":
+        equipment()
+    elif input_value == "11":
+        info_tech()
+    elif input_value == "12":
+        other()                       
+    else:
+        print("Invalid selection. Please try again.")
+        input("Press Enter to continue ...")
 
 
 
@@ -326,6 +363,8 @@ def other():
         print("2.  Work Order")
         try:
             input_value = input("Select an option: ")
+            if input_value == '1':
+                print(f"{first_name} {last_name} has clocked out for the day.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
@@ -335,7 +374,7 @@ def other():
 if __name__ == "__main__":
     ecos = []
     associate_id, first_name, last_name = assoc.id_validate()
-    main_menu(associate_id, first_name, last_name)
+    pull_menu(associate_id, first_name, last_name)
 
 
 

@@ -49,16 +49,16 @@ def id_validate():
     for row in new_list:                                    #checking each row
         if len(row) > 0 and str(row[0]) == str(pin):
             found = True
-            associate_id = row[0]
+            associate_id = int(row[0])
             first_name = row[1] if len(row) > 1 else None   #index 1 of the csv file 
             last_name = row[2] if len(row) > 2 else None    #index 2 of the csv file
-            if id == associate_id:
+            if pin == associate_id:
                 print(f"Name: {first_name} {last_name} ID: {associate_id}") #printing the associate name and id
                 print(f"Employee has now been clocked in.")
             else:
                 print("Pin (Employee ID) not found in employee list.")
                 print("Retry employee Identification number without any zeros.")
-                sys.exit() #to force quit the application if the pin doesn't match any ID 
+        
                 
     return associate_id, first_name, last_name
     associate_id, first_name, last_name = id_validate()
