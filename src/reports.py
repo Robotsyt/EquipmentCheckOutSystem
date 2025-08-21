@@ -31,8 +31,8 @@ def live_reports():
             associate_id = int(row[0])
             first_name = row[1] if len(row) > 1 else None   #index 1 of the csv file 
             last_name = row[2] if len(row) > 2 else None 
-            print("Employee ID first name    Last name    ")
-            print(f"{associate_id, first_name, last_name}")
+            print("Employee ID, first name,    Last name")
+            print(f"{associate_id}   {first_name}     {last_name}")
     
   
     

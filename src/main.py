@@ -166,7 +166,7 @@ def safety(): #clayton
         print("===| Safety |===")
         print("1.  Clock out")
         print("2.  Certificate Employee Update") #Certificate update for empoyee
-        print("3.  Certificate Equipment Update")
+        print("3.  Certificate Equipment Update")#Certificate update for equipment
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
