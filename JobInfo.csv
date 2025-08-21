@@ -1,0 +1,113 @@
+﻿Job_TilteID,JobTitle,JobID,JobType,JobSkillLevelID,SkillLevel,SectionID,Section
+1,Carpenter Supervisor,1,Carpenters,4,Supervisor,3,Maintenance
+2,Carpenter,1,Carpenters,5,Expert,3,Maintenance
+3,Carpenter Trades Helper,1,Carpenters,6,Trades,3,Maintenance
+4,Carpenter Intern,1,Carpenters,7,Intern,3,Maintenance
+5,Electrician Supervisor,2,Electricians,4,Supervisor,3,Maintenance
+6,Electrician,2,Electricians,5,Expert,3,Maintenance
+7,Electrician Trades Helper,2,Electricians,6,Trades,3,Maintenance
+8,Electrician Intern,2,Electricians,7,Intern,3,Maintenance
+9,Painter Supervisor,3,Painters,4,Supervisor,3,Maintenance
+10,Painter,3,Painters,5,Expert,3,Maintenance
+11,Painter Trades Helper,3,Painters,6,Trades,3,Maintenance
+12,Painter Intern,3,Painters,7,Intern,3,Maintenance
+13,Welder Supervisor,4,Welders,4,Supervisor,3,Maintenance
+14,Welder,4,Welders,5,Expert,3,Maintenance
+15,Welder Trades Helper,4,Welders,6,Trades,3,Maintenance
+16,Welder Intern,4,Welders,7,Intern,3,Maintenance
+17,Plumber Supervisor,5,Plumbers,4,Supervisor,3,Maintenance
+18,Plumber,5,Plumbers,5,Expert,3,Maintenance
+19,Plumber Trades Helper,5,Plumbers,6,Trades,3,Maintenance
+20,Plumber Intern,5,Plumbers,7,Intern,3,Maintenance
+21,Special Skill Supervisor,6,Special Skills,4,Supervisor,3,Maintenance
+22,Special Skill,6,Special Skills,5,Expert,3,Maintenance
+23,Special Skill Trades Helper,6,Special Skills,6,Trades,3,Maintenance
+24,Special Skill Intern,6,Special Skills,7,Intern,3,Maintenance
+25,Lawn And Garden Maintenance Supervisor,7,Lawn And Garden Maintenance,4,Supervisor,3,Maintenance
+26,Lawn And Garden Maintenance,7,Lawn And Garden Maintenance,5,Expert,3,Maintenance
+27,Lawn And Garden Maintenance Trades Helper,7,Lawn And Garden Maintenance,6,Trades,3,Maintenance
+28,Lawn And Garden Maintenance Intern,7,Lawn And Garden Maintenance,7,Intern,3,Maintenance
+29,Janitorial And Custodial Supervisor,8,Janitorial And Custodial,4,Supervisor,3,Maintenance
+30,Janitorial And Custodial,8,Janitorial And Custodial,5,Expert,3,Maintenance
+31,Janitorial And Custodial Trades Helper,8,Janitorial And Custodial,6,Trades,3,Maintenance
+32,Janitorial And Custodial Intern,8,Janitorial And Custodial,7,Intern,3,Maintenance
+33,Window Cleaning Supervisor,9,Window Cleaning,4,Supervisor,3,Maintenance
+34,Window Cleaning,9,Window Cleaning,5,Expert,3,Maintenance
+35,Window Cleaning Trades Helper,9,Window Cleaning,6,Trades,3,Maintenance
+36,Window Cleaning Intern,9,Window Cleaning,7,Intern,3,Maintenance
+37,HVAC and Air conditioning Supervisor,10,HVAC and Air conditioning,4,Supervisor,3,Maintenance
+38,HVAC and Air conditioning,10,HVAC and Air conditioning,5,Expert,3,Maintenance
+39,HVAC and Air conditioning Trades Helper,10,HVAC and Air conditioning,6,Trades,3,Maintenance
+40,HVAC and Air conditioning Intern,10,HVAC and Air conditioning,7,Intern,3,Maintenance
+41,Fire Systems Supervisor,11,Fire Systems,4,Supervisor,3,Maintenance
+42,Fire Systems Repair,11,Fire Systems,5,Expert,3,Maintenance
+43,Fire Systems Trades Helper,11,Fire Systems,6,Trades,3,Maintenance
+44,Fire Systems Intern,11,Fire Systems,7,Intern,3,Maintenance
+45,Alarm Systems Supervisor,12,Alarm Systems,4,Supervisor,3,Maintenance
+46,Alarm Systems Repair,12,Alarm Systems,5,Expert,3,Maintenance
+47,Alarm Systems Trades Helper,12,Alarm Systems,6,Trades,3,Maintenance
+48,Alarm Systems Intern,12,Alarm Systems,7,Intern,3,Maintenance
+49,Flooring Supervisor,13,Flooring,4,Supervisor,3,Maintenance
+50,Flooring,13,Flooring,5,Expert,3,Maintenance
+51,Flooring Trades Helper,13,Flooring,6,Trades,3,Maintenance
+52,Flooring Intern,13,Flooring,7,Intern,3,Maintenance
+53,Furniture Repair Supervisor,14,Furniture,4,Supervisor,3,Maintenance
+54,Furniture Repair,14,Furniture,5,Expert,3,Maintenance
+55,Furniture Repair Trades Helper,14,Furniture,6,Trades,3,Maintenance
+56,Furniture Repair Intern,14,Furniture,7,Intern,3,Maintenance
+57,Pest Control Supervisor,15,Pest Control,4,Supervisor,3,Maintenance
+58,Pest Control,15,Pest Control,5,Expert,3,Maintenance
+59,Pest Control Trades Helper,15,Pest Control,6,Trades,3,Maintenance
+60,Pest Control Intern,15,Pest Control,7,Intern,3,Maintenance
+61,Elevator Repair Supervisor,16,Elevator,4,Supervisor,3,Maintenance
+62,Elevator Repair,16,Elevator,5,Expert,3,Maintenance
+63,Elevator Repair Trades Helper,16,Elevator,6,Trades,3,Maintenance
+64,Elevator Repair Intern,16,Elevator,7,Intern,3,Maintenance
+65,Locksmith Supervisor,17,LockSmith,4,Supervisor,3,Maintenance
+66,Locksmith,17,LockSmith,5,Expert,3,Maintenance
+67,Locksmith Trades Helper,17,LockSmith,6,Trades,3,Maintenance
+68,Locksmith Intern,17,LockSmith,7,Intern,3,Maintenance
+69,General Maintenance Supervisor,18,General Maintenance,4,Supervisor,3,Maintenance
+70,General Maintenance,18,General Maintenance,5,Expert,3,Maintenance
+71,General Maintenance Trades Helper,18,General Maintenance,6,Trades,3,Maintenance
+72,General Maintenance Intern,18,General Maintenance,7,Intern,3,Maintenance
+73,HR Supervisor,19,HR,4,Supervisor,1,HR_Finance
+74,HR Worker,19,HR,5,Expert,1,HR_Finance
+75,HR Intern,19,HR,7,Intern,1,HR_Finance
+76,Finance Supervisor,20,Finance,4,Supervisor,1,HR_Finance
+77,Finance Worker,20,Finance,5,Expert,1,HR_Finance
+78,Finance Intern,20,Finance,7,Intern,1,HR_Finance
+79,Auditor/Compliance Supervisor,21,Auditor/Compliance,4,Supervisor,1,HR_Finance
+80,Auditor/Compliance Worker,21,Auditor/Compliance,5,Expert,1,HR_Finance
+81,Safety Supervisor,22,Safety,4,Supervisor,1,HR_Finance
+82,Safety Worker,22,Safety,5,Expert,1,HR_Finance
+83,Safety Trades Helper,22,Safety,6,Trades,1,HR_Finance
+84,Safety Intern,22,Safety,7,Intern,1,HR_Finance
+85,Project Manager,23,Project Manager,1,High Level Management,4,Project Management
+86,Deputy Project Manager,23,Project Manager,2,Mid Level Management,4,Project Management
+87,Division/Branch Manager Maintenance,23,Project Manager,3,Low Level Management,3,Maintenance
+88,Division/Branch Manager Supply,23,Project Manager,3,Low Level Management,2,Supply
+89,Division/Branch Manager IT,23,Project Manager,3,Low Level Management,5,IT
+90,Division/Branch Manager Other,23,Project Manager,3,Low Level Management,6,Other
+91,Administration Supervisor,24,Administration,4,Supervisor,4,Project Management
+92,Administration Worker,24,Administration,5,Expert,4,Project Management
+93,Administration Intern,24,Administration,7,Intern,4,Project Management
+94,Procurement Supervisor,25,Procurement,4,Supervisor,4,Project Management
+95,Procurement Worker,25,Procurement,5,Expert,4,Project Management
+96,WareHouse Supervisor,26,WareHouse,4,Supervisor,2,Supply
+97,Warehouse Worker,26,WareHouse,5,Expert,2,Supply
+98,Warehouse Trades Helper,26,WareHouse,6,Trades,2,Supply
+99,Warehouse Intern,26,WareHouse,7,Intern,2,Supply
+100,Equipment Supervisor,27,Equipment,4,Supervisor,2,Supply
+101,Equipment Worker,27,Equipment,5,Expert,2,Supply
+102,Equipment Trades Helper,27,Equipment,6,Trades,2,Supply
+103,Equipment Intern,27,Equipment,7,Intern,2,Supply
+104,IT Supervisor,28,IT,4,Supervisor,5,IT
+105,IT Security,28,IT,5,Expert,5,IT
+106,IT Database Management,28,IT,5,Expert,5,IT
+107,IT Help Desk,28,IT,6,Trades,5,IT
+108,IT Intern,28,IT,7,Intern,5,IT
+109,Other Supervisor,29,Other,4,Supervisor,6,Other
+110,Other Worker,29,Other,5,Expert,6,Other
+111,Other Trades Helper,29,Other,6,Trades,6,Other
+112,Other Intern,29,Other,7,Intern,6,Other
