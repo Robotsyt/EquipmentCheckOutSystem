@@ -26,8 +26,7 @@ def remove_employee():
 def update_employee():
     pass
 
-
-#finance jon
+asdas
 def lost_damage():
     pass
 def equipment_price():
