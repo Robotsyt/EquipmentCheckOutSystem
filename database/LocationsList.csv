@@ -1,0 +1,57 @@
+﻿LocationID,ToolRoomID,EmployeeHeld,WarehouseID,SiteID,Building,FloorLevel,Room
+1,1,Null,Null,Null,,,
+2,2,Null,Null,Null,,,
+3,Null,3,Null,Null,,,
+4,Null,Null,4,Null,,,
+5,Null,Null,5,Null,,,
+6,Null,Null,Null,1,Office Bldg A,Ground,Lobby
+7,Null,Null,Null,2,Office Bldg A,Ground,Office 1
+8,Null,Null,Null,3,Office Bldg A,Ground,Office 2
+9,Null,Null,Null,4,Office Bldg A,Ground,Bathroom 1
+10,Null,Null,Null,5,Office Bldg A,Ground,Bathroom 2
+11,Null,Null,Null,6,Office Bldg A,Second,Office 1
+12,Null,Null,Null,7,Office Bldg A,Second,Office 2
+13,Null,Null,Null,8,Office Bldg A,Second,Bathroom 1
+14,Null,Null,Null,9,Office Bldg A,Second,Bathroom 2
+15,Null,Null,Null,10,Office Bldg A,Third,Office 1
+16,Null,Null,Null,11,Office Bldg A,Third,Office 2
+17,Null,Null,Null,12,Office Bldg A,Third,Bathroom 1
+18,Null,Null,Null,13,Office Bldg A,Third,Bathroom 2
+19,Null,Null,Null,14,Office Bldg A,Basement,Utility Room
+20,Null,Null,Null,15,Office Bldg A,Basement,Server Room
+21,Null,Null,Null,16,Office Bldg A,Basement,Security Room
+22,Null,Null,Null,17,Office Bldg A,External,N/A
+23,Null,Null,Null,18,Office Bldg B,Ground,Lobby
+24,Null,Null,Null,19,Office Bldg B,Ground,Office 1
+25,Null,Null,Null,20,Office Bldg B,Ground,Office 2
+26,Null,Null,Null,21,Office Bldg B,Ground,Bathroom 1
+27,Null,Null,Null,22,Office Bldg B,Ground,Bathroom 2
+28,Null,Null,Null,23,Office Bldg B,Second,Office 1
+29,Null,Null,Null,24,Office Bldg B,Second,Office 2
+30,Null,Null,Null,25,Office Bldg B,Second,Bathroom 1
+31,Null,Null,Null,26,Office Bldg B,Second,Bathroom 2
+32,Null,Null,Null,27,Office Bldg B,Third,Office 1
+33,Null,Null,Null,28,Office Bldg B,Third,Office 2
+34,Null,Null,Null,29,Office Bldg B,Third,Bathroom 1
+35,Null,Null,Null,30,Office Bldg B,Third,Bathroom 2
+36,Null,Null,Null,31,Office Bldg B,Basement,Utility Room
+37,Null,Null,Null,32,Office Bldg B,Basement,Server Room
+38,Null,Null,Null,33,Office Bldg B,Basement,Security Room
+39,Null,Null,Null,34,Office Bldg B,External,N/A
+40,Null,Null,Null,35,Office Bldg C,Ground,Lobby
+41,Null,Null,Null,36,Office Bldg C,Ground,Office 1
+42,Null,Null,Null,37,Office Bldg C,Ground,Office 2
+43,Null,Null,Null,38,Office Bldg C,Ground,Bathroom 1
+44,Null,Null,Null,39,Office Bldg C,Ground,Bathroom 2
+45,Null,Null,Null,40,Office Bldg C,Second,Office 1
+46,Null,Null,Null,41,Office Bldg C,Second,Office 2
+47,Null,Null,Null,42,Office Bldg C,Second,Bathroom 1
+48,Null,Null,Null,43,Office Bldg C,Second,Bathroom 2
+49,Null,Null,Null,44,Office Bldg C,Third,Office 1
+50,Null,Null,Null,45,Office Bldg C,Third,Office 2
+51,Null,Null,Null,46,Office Bldg C,Third,Bathroom 1
+52,Null,Null,Null,47,Office Bldg C,Third,Bathroom 2
+53,Null,Null,Null,48,Office Bldg C,Basement,Utility Room
+54,Null,Null,Null,49,Office Bldg C,Basement,Server Room
+55,Null,Null,Null,50,Office Bldg C,Basement,Security Room
+56,Null,Null,Null,51,Office Bldg C,External,N/A
