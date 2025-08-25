@@ -30,30 +30,30 @@ def pull_menu(associate_id, first_name, last_name):
         print(f"Configuring Employee Job Type Menu for id {associate_id} ....")
         time.sleep(2)
         print(f"Taking you to {first_name} {last_name} menu")
-
-        if associate_id >= 0 and associate_id <= 31:
+# ID numbers updated / Check out updated to Clock out / Clock out option added to IT
+        if associate_id >= 0 and associate_id <= 72:
             maintenance()
-        elif associate_id >= 32 and associate_id <= 37:
+        elif associate_id >= 73 and associate_id <= 75:
             hr()
-        elif associate_id >= 38 and associate_id <= 42:
+        elif associate_id >= 76 and associate_id <= 78:
             finance()
-        elif associate_id >= 43 and associate_id <= 45:
+        elif associate_id >= 79 and associate_id <= 80:
             auditor()
-        elif associate_id >= 46 and associate_id <= 52:
+        elif associate_id >= 81 and associate_id <= 84:
             safety()
-        elif associate_id >= 53 and associate_id <= 56:
+        elif associate_id >= 85 and associate_id <= 90:
             project_manager()
-        elif associate_id >= 57 and associate_id <= 68:
+        elif associate_id >= 91 and associate_id <= 93:
             administration()
-        elif associate_id >= 69 and associate_id <= 76:
+        elif associate_id >= 94 and associate_id <= 95:
             procurement()
-        elif associate_id >= 76 and associate_id <= 100:
+        elif associate_id >= 96 and associate_id <= 99:
             warehouse()
-        elif associate_id >= 101 and associate_id <= 105:
+        elif associate_id >= 100 and associate_id <= 103:
             equipment()
-        elif associate_id >= 106 and associate_id <= 111:
+        elif associate_id >= 104 and associate_id <= 108:
             info_tech()
-        elif associate_id == 112:
+        elif associate_id >= 109 and associate_id <=  112:
             other()
         elif associate_id >= 113:
             print("\n Employee needs to seek HR. Please contact them right away.")
@@ -210,7 +210,7 @@ def administration():
         os.system('cls' if os.name == 'nt' else 'clear')
         print(formatted_datetime)
         print("===| Admin |===")
-        print("1.  Check out")
+        print("1.  Clock out")
         print("2.  Live Status Report")
         print("3.  Email report")
         try:
@@ -234,7 +234,7 @@ def procurement(): #clatyton
         os.system('cls' if os.name == 'nt' else 'clear')
         print(formatted_datetime)
         print("===| Procurement |===")
-        print("1.  Check out")
+        print("1.  Clock out")
         print("2.  Inventory Report")
         print("3.  Update Inventory tools/equipment")
         try:
@@ -258,7 +258,7 @@ def warehouse():
         os.system('cls' if os.name == 'nt' else 'clear')
         print(formatted_datetime)
         print("===| Warehouse |===")
-        print("1.  Check out")
+        print("1.  Clock out")
         print("2.  Materials Status Update")
         try:
             input_value = input("Select an option: ")
@@ -278,7 +278,7 @@ def equipment():
         os.system('cls' if os.name == 'nt' else 'clear')
         print(formatted_datetime)
         print("===| Tool Room |===")
-        print("1.  Check out")
+        print("1.  Clock out")
         print("2.  Equipment Status Update")
         try:
             input_value = input("Select an option: ")
@@ -314,7 +314,7 @@ def info_tech():
         print("10. Equipment")
         print("11. IT")
         print("12. Other")
-         
+        print("13.  Clock out")
 
         try:
             input_value = input("Select an option: ")
@@ -346,6 +346,8 @@ def info_tech():
         info_tech()
     elif input_value == "12":
         other()                       
+    elif input_value == "13":
+        print(f"{first_name} {last_name} has clocked out for the day.")
     else:
         print("Invalid selection. Please try again.")
         input("Press Enter to continue ...")
@@ -362,7 +364,7 @@ def other():
         os.system('cls' if os.name == 'nt' else 'clear')
         print(formatted_datetime)
         print("===| Temporary Contract |===")
-        print("1.  Check out")
+        print("1.  Clock out")
         print("2.  Work Order")
         try:
             input_value = input("Select an option: ")
