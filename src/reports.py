@@ -1,4 +1,9 @@
 import csv
+import loaders
+import pandas as pd
+from loaders import EQUIPMENT_FILE, MATERIAL_LOC_FILE
+import time
+
 #CSV reader
 def load_data(filename):
     my_list = []
@@ -12,14 +17,58 @@ def load_data(filename):
 #reports function loader
 
 #Auditor Function
-def auditor_report():
-    print("")
+def auditor_report(): # done
+    while True:
+        time.sleep(1)
+        print("===| Auditor Reports |===")
+        print("1.  Inventory By Employee")
+        print("2.  Inventory By Condition")
+        print("3.  Inventory By Tool Room")
+        print("4.  Inventory By Materials")
+
+        try:
+            input_value = input("Select an option: ")
+            if input_value == "1":
+                loaders.inventory_employee_tool(EQUIPMENT_FILE)
+            elif input_value == '2':
+                loaders.inventory_condition_tool(EQUIPMENT_FILE)
+            elif input_value == '3':
+                loaders.inventory_tool_room(EQUIPMENT_FILE)
+            elif input_value == '4':
+                loaders.inventory_materials(MATERIAL_LOC_FILE)
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
 
 
 
-def reports_menu():
-    print("")
-def live_reports():
+
+def reports_menu(): # done
+    while True:
+        time.sleep(1)
+        print("===| Reports |===")
+        print("1.  Inventory By Employee")
+        print("2.  Inventory By Condition")
+        print("3.  Inventory By Tool Room")
+        print("4.  Inventory By Materials")
+
+        try:
+            input_value = input("Select an option: ")
+            if input_value == "1":
+                loaders.inventory_employee_tool(EQUIPMENT_FILE)
+            elif input_value == '2':
+                loaders.inventory_condition_tool(EQUIPMENT_FILE)
+            elif input_value == '3':
+                loaders.inventory_tool_room(EQUIPMENT_FILE)
+            elif input_value == '4':
+                loaders.inventory_materials(MATERIAL_LOC_FILE)
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
+
+
+
+def live_reports(): # done
 
     associate_id = None
     first_name = None
@@ -36,7 +85,6 @@ def live_reports():
     
   
     
-def email_report():
+def email_report(): # pending
     print("")
-def inventory_reports():
-    print("")
+
