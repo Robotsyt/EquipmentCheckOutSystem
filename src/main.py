@@ -11,18 +11,26 @@ from datetime import datetime
 
 
 
+# File paths
+CLOCK_FILE = "database/Clock.csv"
+EMPLOYEE_FILE = "database/Employee.csv"
+JOB_INFO_FILE = "database/JobInfo.csv"
+EQUIPMENT_FILE = "database/Equipment.csv"
+EMPLOYEE_CERT_FILE = "database/EmployeeCertification.csv"
+LOCATION_FILE = "database/LocationsList.csv"
+MATERIAL_LOC_FILE = "database/MaterialInventory.csv"
+TRANSACTIONS_FILE = 'database/Transactions.csv'
+WORK_ORDER_FILE = 'database/WorkOrder.csv'
+
 #changed datetime to exclude miliseconds
 original_datetime = datetime.now()
 formatted_datetime = original_datetime.strftime('%m-%d-%Y \n%H:%M')
 
 
-# need multi level UI for job levels 5-7, 4, 1-3
-
-
 os.system('cls' if os.name == 'nt' else 'clear')
 
 #defining the main UI 
-def pull_menu(associate_id, first_name, last_name):
+def pull_menu(associate_id, first_name, last_name, job_title):
     
         time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -30,37 +38,38 @@ def pull_menu(associate_id, first_name, last_name):
         print(f"Configuring Employee Job Type Menu for id {associate_id} ....")
         time.sleep(2)
         print(f"Taking you to {first_name} {last_name} menu")
-# ID numbers updated / Check out updated to Clock out / Clock out option added to IT
-        if associate_id >= 0 and associate_id <= 72:
+
+        if job_title >= 0 and job_title <= 72:
             maintenance()
-        elif associate_id >= 73 and associate_id <= 75:
+        elif job_title >= 73 and job_title <= 75:
             hr()
-        elif associate_id >= 76 and associate_id <= 78:
+        elif job_title >= 76 and job_title <= 78:
             finance()
-        elif associate_id >= 79 and associate_id <= 80:
+        elif job_title >= 79 and job_title <= 80:
             auditor()
-        elif associate_id >= 81 and associate_id <= 84:
+        elif job_title >= 81 and job_title <= 84:
             safety()
-        elif associate_id >= 85 and associate_id <= 90:
+        elif job_title >= 85 and job_title <= 90:
             project_manager()
-        elif associate_id >= 91 and associate_id <= 93:
+        elif job_title >= 91 and job_title <= 93:
             administration()
-        elif associate_id >= 94 and associate_id <= 95:
+        elif job_title >= 94 and job_title <= 95:
             procurement()
-        elif associate_id >= 96 and associate_id <= 99:
+        elif job_title >= 96 and job_title <= 99:
             warehouse()
-        elif associate_id >= 100 and associate_id <= 103:
+        elif job_title >= 100 and job_title <= 103:
             equipment()
-        elif associate_id >= 104 and associate_id <= 108:
+        elif job_title >= 104 and job_title <= 108:
             info_tech()
-        elif associate_id >= 109 and associate_id <=  112:
+        elif job_title >= 109 and job_title <= 112:
             other()
-        elif associate_id >= 113:
+        elif job_title >= 113:
             print("\n Employee needs to seek HR. Please contact them right away.")
             time.sleep(3)
         else:
             print("\nInput cancelled or not available. Exiting program.")
             sys.exit()
+# maintenance function pending functions 2 and 3
 def maintenance():
     while True:
         time.sleep(1)
@@ -70,6 +79,7 @@ def maintenance():
         print("1.  Clock out")
         print("2.  Equipment Check In")
         print("3.  Equipment Check Out")
+        print("4.  Employee Personal Equipment Inventory")
         try:
             input_value = input("Select an option: ")
         except (EOFError, KeyboardInterrupt):
@@ -81,11 +91,13 @@ def maintenance():
         print (f"Please return your tools to the window clerk now")
     elif input_value == "3":
         print (f"Please grab your tools from the window clerk now")
+    elif input_value == "4":
+        loaders.inventory_employee_tool(EQUIPMENT_FILE)
     else:
         print("\nInput cancelled or not available. Exiting program.")
 
 
-#HR function
+#HR function done
 def hr():
     while True:
         time.sleep(1)
@@ -101,10 +113,13 @@ def hr():
             if input_value == '1':
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input_value == "2":
-                loaders.add_employee()
+                loaders.count_rows_csv(EMPLOYEE_FILE)
+                print(f"Total employees: {loaders.count_rows_csv(EMPLOYEE_FILE)}")
+                loaders.add_employee(EMPLOYEE_FILE)
             elif input_value == '3':
-                loaders.remove_employee()
+                loaders.remove_employee(EMPLOYEE_FILE)
             elif input_value == '4':
+                print("Enter 0 to skip any field, unless otherwise noted.\n")
                 loaders.update_employee()
             else:
                 print("\nInput cancelled or not available. Exiting program.")
@@ -114,7 +129,7 @@ def hr():
         break 
     
 
-#finance function
+#finance function done
 def finance():
     while True:
         time.sleep(1)
@@ -129,16 +144,16 @@ def finance():
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input_value == '2':
-                loaders.lost_damage()
+                loaders.inventory_condition_tool(EQUIPMENT_FILE)
             elif input_value == '3':
-                loaders.equipment_price()
+                loaders.individual_equipment_price(EQUIPMENT_FILE)
             else:
                 print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
     
-#Auditor function
+#Auditor function pending function 2 or split list for reports
 def auditor():
     while True:
         time.sleep(1)
@@ -157,7 +172,7 @@ def auditor():
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
-#Safety Function
+#Safety Function  pending functions 2 and 3
 def safety(): #clayton
     while True:
         time.sleep(1)
@@ -181,7 +196,7 @@ def safety(): #clayton
             print("\nInput cancelled or not available. Exiting program.")
         break 
     pass
-#Project manager function
+#Project manager function pending function 2 or split list for reports
 def project_manager():
     while True:
         time.sleep(1)
@@ -203,7 +218,7 @@ def project_manager():
             print("\nInput cancelled or not available. Exiting program.")
         break 
     
-#Administration function
+#Administration function  pending function 3
 def administration():
     while True:
         time.sleep(1)
@@ -227,8 +242,8 @@ def administration():
             print("\nInput cancelled or not available. Exiting program.")
         break 
     
-#Procurement Function
-def procurement(): #clatyton
+#Procurement Function done
+def procurement():
     while True:
         time.sleep(1)
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -242,16 +257,17 @@ def procurement(): #clatyton
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input_value == "2":
-                reports.inventory_reports_menu()
+                loaders.inventory_tool_room(EQUIPMENT_FILE)
             elif input_value == "3":
-                loaders.inventory_tool()
+                print("Enter 0 to skip any field, unless otherwise noted.\n")
+                loaders.update_inventory_tool(EQUIPMENT_FILE)
             else:    
                 print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
     
-#Warehouse function
+#Warehouse function done
 def warehouse():
     while True:
         time.sleep(1)
@@ -259,19 +275,25 @@ def warehouse():
         print(formatted_datetime)
         print("===| Warehouse |===")
         print("1.  Clock out")
-        print("2.  Materials Status Update")
+        print("2.  Materials Update")
+        print("3.  Inventory Report")
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input == '2':
+                print("Enter 0 to skip any field, unless otherwise noted.\n")
                 loaders.material_update()
+            elif input == '3'
+                loaders.inventory_materials(MATERIAL_LOC_FILE)
             else:
                 print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
-#Equipment Function
+
+
+#Equipment Function pending function 2
 def equipment():
     while True:
         time.sleep(1)
@@ -280,12 +302,18 @@ def equipment():
         print("===| Tool Room |===")
         print("1.  Clock out")
         print("2.  Equipment Status Update")
+        print("3.  Equipment Inventory")
+        print("4.  Update Equipment Condition")
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input == '2':
                 loaders.equipment_status()
+            elif input == '3'
+                loaders.inventory_tool_room(EQUIPMENT_FILE)
+            elif input == '4':
+                loaders.tool_condition_update(EQUIPMENT_FILE)
             else:
                 print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
@@ -314,7 +342,7 @@ def info_tech():
         print("10. Equipment")
         print("11. IT")
         print("12. Other")
-        print("13.  Clock out")
+         
 
         try:
             input_value = input("Select an option: ")
@@ -327,7 +355,7 @@ def info_tech():
     elif input_value == "2":
         hr()              
     elif input_value == "3":
-        finance()           #
+        finance()
     elif input_value == "4":
         auditor()
     elif input_value == "5":
@@ -353,10 +381,6 @@ def info_tech():
         input("Press Enter to continue ...")
 
 
-
-
-
-
 #other Function
 def other():
     while True:
@@ -370,6 +394,13 @@ def other():
             input_value = input("Select an option: ")
             if input_value == '1':
                 print(f"{first_name} {last_name} has clocked out for the day.")
+            elif input_value == '2':
+                loaders.count_rows_csv_WorkOrder(WORK_ORDER_FILE)
+                print(f"Current WorkOrders: {loaders.count_rows_csv_WorkOrder(WORK_ORDER_FILE)}")
+                loaders.add_work_order(WORK_ORDER_FILE)
+            else:
+                print("Invalid selection. Please try again.")
+                input("Press Enter to continue ...")
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")
         break 
@@ -378,8 +409,8 @@ def other():
 #program call to start
 if __name__ == "__main__":
     ecos = []
-    associate_id, first_name, last_name = assoc.id_validate()
-    pull_menu(associate_id, first_name, last_name)
+    associate_id, first_name, last_name, job_title = assoc.id_validate()
+    pull_menu(associate_id, first_name, last_name, job_title)
 
 
 
