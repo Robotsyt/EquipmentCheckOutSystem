@@ -7,10 +7,6 @@ import associate as assoc
 import reports
 from datetime import datetime
 
-
-
-
-
 # File paths
 CLOCK_FILE = "database/Clock.csv"
 EMPLOYEE_FILE = "database/Employee.csv"
@@ -69,7 +65,7 @@ def pull_menu(associate_id, first_name, last_name, job_title):
         else:
             print("\nInput cancelled or not available. Exiting program.")
             sys.exit()
-# maintenance function pending functions 2 and 3
+# maintenance function done
 def maintenance():
     while True:
         time.sleep(1)
@@ -80,6 +76,7 @@ def maintenance():
         print("2.  Equipment Check In")
         print("3.  Equipment Check Out")
         print("4.  Employee Personal Equipment Inventory")
+        input_value = None  # Initialize input_value to None
         try:
             input_value = input("Select an option: ")
         except (EOFError, KeyboardInterrupt):
@@ -88,8 +85,17 @@ def maintenance():
     if input_value == "1":
         print(f"{first_name} {last_name} has clocked out for the day.")
     elif input_value == "2":
+        loaders.count_rows_trans(TRANSACTIONS_FILE)
+        loaders.transactions(TRANSACTIONS_FILE)
+        loaders.tool_location_update(EQUIPMENT_FILE)
         print (f"Please return your tools to the window clerk now")
     elif input_value == "3":
+        print ("Select the tool room you are checking out from.")
+        loaders.inventory_tool_room(EQUIPMENT_FILE)
+        print ("The list generated is the tools available for check out.")
+        loaders.count_rows_trans(TRANSACTIONS_FILE)
+        loaders.transactions(TRANSACTIONS_FILE)
+        loaders.tool_location_update(EQUIPMENT_FILE)
         print (f"Please grab your tools from the window clerk now")
     elif input_value == "4":
         loaders.inventory_employee_tool(EQUIPMENT_FILE)
@@ -108,6 +114,7 @@ def hr():
         print("2.  Add Employee")
         print("3.  Remove Employee")
         print("4.  Update Employee information")
+        input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
             if input_value == '1':
@@ -139,6 +146,7 @@ def finance():
         print("1.  Clock out")
         print("2.  Lost and Damage Equipment Report")
         print("3.  Equipment Price Checker")
+        input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
@@ -153,7 +161,7 @@ def finance():
             print("\nInput cancelled or not available. Exiting program.")
         break 
     
-#Auditor function pending function 2 or split list for reports
+#Auditor function done
 def auditor():
     while True:
         time.sleep(1)
@@ -162,7 +170,7 @@ def auditor():
         print("===| Auditor |===")
         print("1.  Clock out")
         print("2.  Generate All Reports")
-        
+        input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
@@ -182,6 +190,7 @@ def safety(): #clayton
         print("1.  Clock out")
         print("2.  Certificate Employee Update") #Certificate update for empoyee
         print("3.  Certificate Equipment Update")#Certificate update for equipment
+        input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
@@ -196,7 +205,7 @@ def safety(): #clayton
             print("\nInput cancelled or not available. Exiting program.")
         break 
     pass
-#Project manager function pending function 2 or split list for reports
+#Project manager function done
 def project_manager():
     while True:
         time.sleep(1)
@@ -205,7 +214,7 @@ def project_manager():
         print("===| Manager |===")
         print("1.  Clock out")
         print("2.  Generate All Reports")
-        
+        input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
@@ -228,6 +237,7 @@ def administration():
         print("1.  Clock out")
         print("2.  Live Status Report")
         print("3.  Email report")
+        input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
@@ -252,6 +262,7 @@ def procurement():
         print("1.  Clock out")
         print("2.  Inventory Report")
         print("3.  Update Inventory tools/equipment")
+        input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
@@ -277,6 +288,7 @@ def warehouse():
         print("1.  Clock out")
         print("2.  Materials Update")
         print("3.  Inventory Report")
+        input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
@@ -284,7 +296,7 @@ def warehouse():
             elif input == '2':
                 print("Enter 0 to skip any field, unless otherwise noted.\n")
                 loaders.material_update()
-            elif input == '3'
+            elif input == '3':
                 loaders.inventory_materials(MATERIAL_LOC_FILE)
             else:
                 print("\nInput cancelled or not available. Exiting program.")
@@ -293,7 +305,7 @@ def warehouse():
         break 
 
 
-#Equipment Function pending function 2
+#Equipment Function done
 def equipment():
     while True:
         time.sleep(1)
@@ -301,16 +313,17 @@ def equipment():
         print(formatted_datetime)
         print("===| Tool Room |===")
         print("1.  Clock out")
-        print("2.  Equipment Status Update")
+        print("2.  Equipment Location Update")
         print("3.  Equipment Inventory")
         print("4.  Update Equipment Condition")
+        input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
             if input_value == "1":
                 print(f"{first_name} {last_name} has clocked out for the day.")
             elif input == '2':
-                loaders.equipment_status()
-            elif input == '3'
+                loaders.tool_location_update(EQUIPMENT_FILE)
+            elif input == '3':
                 loaders.inventory_tool_room(EQUIPMENT_FILE)
             elif input == '4':
                 loaders.tool_condition_update(EQUIPMENT_FILE)
@@ -323,7 +336,7 @@ def equipment():
 
 
 
-#info_tech function
+#info_tech function done
 def info_tech():
     while True:
         time.sleep(3)
@@ -342,7 +355,7 @@ def info_tech():
         print("10. Equipment")
         print("11. IT")
         print("12. Other")
-         
+        input_value = None  # Initialize input_value
 
         try:
             input_value = input("Select an option: ")
@@ -381,7 +394,7 @@ def info_tech():
         input("Press Enter to continue ...")
 
 
-#other Function
+#other Function done
 def other():
     while True:
         time.sleep(1)
@@ -390,6 +403,7 @@ def other():
         print("===| Temporary Contract |===")
         print("1.  Clock out")
         print("2.  Work Order")
+        input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
             if input_value == '1':
