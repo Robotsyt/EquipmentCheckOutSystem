@@ -425,7 +425,7 @@ def other():
 
 #program call to start
 if __name__ == "__main__":
-    associate_id, first_name, last_name = assoc.id_validate()
-    pull_menu(associate_id, first_name, last_name)
+    associate_id, first_name, last_name, job_title = assoc.id_validate()
+    pull_menu(associate_id, first_name, last_name, job_title)
 
 
