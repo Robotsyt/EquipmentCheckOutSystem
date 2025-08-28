@@ -516,8 +516,28 @@ def inventory_materials(MATERIAL_LOC_FILE):
 
 
 #Equipment functions Brandon
-def equipment_status(): #see inventory_condition_tool function or Claytons File
-    pass
+
+def equipment_status(EQUIPMENT_FILE='database/Equipment.csv'): #see inventory_condition_tool function or Claytons File
+    columns_to_show = ['Item #', 'Item Info', 'Condition', 'ToolRoomName', 'EmployeeID']
+    # Read the CSV file into a DataFrame
+    try:
+        df = pd.read_csv(EQUIPMENT_FILE, encoding='utf-8')
+        # Check if the specified columns exist
+        missing_columns = [col for col in columns_to_show if col not in df.columns]
+        #if any columns are missing, print an error message and return
+        if missing_columns:
+            print(f"Error: The following columns are missing in the CSV file: {missing_columns}")
+            return
+        print(df[columns_to_show])
+    # if the file is not found, print an error message
+    except FileNotFoundError:
+        print(f"Error: File '{EQUIPMENT_FILE}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
+        
+
 def tool_condition_update(EQUIPMENT_FILE):
     EQUIPMENT_FILE = 'database/Equipment.csv'
     item = input("Enter Item Number: ")
