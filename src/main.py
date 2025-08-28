@@ -316,6 +316,7 @@ def equipment():
         print("2.  Equipment Location Update")
         print("3.  Equipment Inventory")
         print("4.  Update Equipment Condition")
+        print("5.  Equipment Status")
         input_value = None  # Initialize input_value
         try:
             input_value = input("Select an option: ")
@@ -327,6 +328,8 @@ def equipment():
                 loaders.inventory_tool_room(EQUIPMENT_FILE)
             elif input == '4':
                 loaders.tool_condition_update(EQUIPMENT_FILE)
+            elif input == '5':
+                loaders.equipment_status(EQUIPMENT_FILE='database/Equipment.csv')
             else:
                 print("\nInput cancelled or not available. Exiting program.")
         except (EOFError, KeyboardInterrupt):
