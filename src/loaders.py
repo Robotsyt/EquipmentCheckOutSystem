@@ -322,17 +322,212 @@ def individual_equipment_price(EQUIPMENT_FILE):
 def auditor_report():  # see reports.py file
     pass
 
-#safety Clayton
+       #safety 
 def certificate_employee():
+    EMPLOYEE_FILE = 'database/Employee.csv'
+    EMPLOYEE_CERT_FILE = 'database/EmployeeCertifications.csv'
+    employee = int(input("Enter Employee ID: "))
     emp_df = pd.read_csv(EMPLOYEE_FILE)
+    columns_to_keep = ['EmployeeID', 'F_Name', 'L_Name']
     cert_df = pd.read_csv(EMPLOYEE_CERT_FILE)
-    merged = pd.merge(cert_df, emp_df, left_on='EmployeeID', right_on='EmployeeID')
-    merged = merged[["EmployeeID", "F_Name", "L_Name", "CertificationID"]]
-    merged.columns = ["Employee ID", "First Name", "Last Name", "Certification ID"]
-    paginate(merged)
+    columns_to_keep2 = ['EmployeeID', 'CertificationID', 'CertificationName']
 
-def certificiate_equipment():
-    pass
+    try:
+        # Check if the specified columns exist
+        missing_columns = [col for col in columns_to_keep if col not in emp_df.columns]
+        if missing_columns:
+            print(f"Error: The following columns are missing in the CSV file: {missing_columns}")
+            return
+
+        missing_columns2 = [col for col in columns_to_keep2 if col not in cert_df.columns]
+        if missing_columns2:
+            print(f"Error: The following columns are missing in the CSV file: {missing_columns2}")
+            return
+
+        # Select only the desired columns
+        emp_df = emp_df[columns_to_keep]
+        cert_df = cert_df[columns_to_keep2]
+
+        # Filter rows where the column matches the given value
+        filtered_emp_df = emp_df[emp_df['EmployeeID'] == employee]
+        filtered_cert_df = cert_df[cert_df['EmployeeID'] == employee]
+
+        if filtered_emp_df.empty or filtered_cert_df.empty:
+            print(f"No data found for Employee ID: {employee}")
+            return
+
+        merged = pd.merge(filtered_cert_df, filtered_emp_df, how='outer', on='EmployeeID')
+        merged = merged[["EmployeeID", "F_Name", "L_Name", "CertificationID", "CertificationName"]]
+        merged.columns = ["Employee ID", "First Name", "Last Name", "Certification ID", "Certification Name"]
+
+        #print(merged)
+    except FileNotFoundError:
+        print(f"Error: File not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    while True:
+        print("===| Employee Certifications |===")
+        print("1.  Current Employee Certifications")
+        print("2.  Add Employee Certifications") #Certificate update for empoyee
+        print("3.  Remove Employee Certifications")#Certificate update for equipment
+        input_value = None  # Initialize input_value
+        try:
+            input_value = input("Select an option: ")
+            if input_value == "1":
+                print(merged)
+            elif input_value == '2':
+                certID = int(input("Enter Certification ID to add: "))
+                certtype = input("Enter Certification Type: ")
+                certname = input("Enter Certification Name: ")
+                certlevel = input("Enter Certification Level: ")
+                new_employee_cert_row = [employee, certID, certtype, certname, certlevel]
+                try:
+                    # Open the file in append mode ('a') and set newline='' to avoid extra blank lines
+                    with open('database/Employee.csv', mode='a', newline='', encoding='utf-8') as file:
+                        writer = csv.writer(file)
+                        writer.writerow(new_employee_cert_row)  # Append the new row
+                    print(f"Row {new_employee_cert_row} successfully added to {EMPLOYEE_CERT_FILE}.")
+                except Exception as e:
+                    print(f"Error: {e}")
+            elif input_value == '3':
+                certID = input("Enter Certification ID to remove: ")
+                try:
+                    # Open the file for reading
+                    with open(EMPLOYEE_CERT_FILE, mode='r', newline='', encoding='utf-8') as infile:
+                        df = pd.read_csv(EMPLOYEE_CERT_FILE)
+
+                        # Remove rows where 'EmployeeID' column equals provided value
+                        df_filtered = df[df['EmployeeID'] != employee, df['CertificationID'] != certID]
+                        # Save the DataFrame to CSV file
+                        df_filtered.to_csv(EMPLOYEE_CERT_FILE, index=False)
+
+                    print(f"Employee number '{employee}' certificate number '{certID}' has been removed.")
+                except FileNotFoundError:
+                    print(f"Error: The file '{EMPLOYEE_CERT_FILE}' was not found.")
+                except Exception as e:
+                    print(f"An unexpected error occurred: {e}")
+
+
+            else: 
+                print("\nInput cancelled or not available. Exiting program.")
+        except (EOFError, KeyboardInterrupt):
+            print("\nInput cancelled or not available. Exiting program.")
+        break 
+    
+
+def certificate_equipment():
+    while True:
+        print("===| Equipment Certifications |===")
+        print("1.  Current Equipment Certifications by item number")
+        print("2.  Current items list by Certifications")
+        print("3.  Alter Equipment Certifications") #Certificate update for equipment
+        input_value = None  # Initialize input_value
+        try:
+            input_value = input("Select an option: ")
+            if input_value == "1":
+                EQUIPMENT_FILE = 'database/Equipment.csv'  # input file path and desired output file path
+                columns_to_keep = ['Item #', 'Item Info', 'ToolRoomName', 'ToolRoomID', 'CertificationID', 'CertificationID2']
+                item = input("Enter Item number to find Certifications: ") # condition to find
+                try:
+                    # Read the CSV file into a DataFrame
+                    with open(EQUIPMENT_FILE, mode='r', newline='', encoding='utf-8') as infile:
+                        df = pd.read_csv(infile, encoding='utf-8')
+
+                    # Check if the specified column exists
+                    missing_columns = [col for col in columns_to_keep if col not in df.columns]
+                    if missing_columns:
+                        print(f"Error: The following columns are missing in the CSV file: {missing_columns}")
+                        return
+                    # Select only the desired columns
+                    df = df[columns_to_keep]
+
+                    if 'Item #' not in df.columns:
+                        print("Error: 'Item #' column not found in the CSV file.")
+                        return
+
+                    # Filter rows where the column matches the given value
+                    df_filtered = df[df['Item #'] == item]
+
+                    # Check if any rows match the condition
+                    if df_filtered.empty:
+                        print(f"No rows found with '{'Item #'}' equal to '{item}'.")
+                    else:
+                        print("Filtered rows:")
+                        print(df_filtered)
+                except FileNotFoundError:
+                    print(f"Error: File '{EQUIPMENT_FILE}' not found.")
+                except Exception as e:
+                    print(f"An error occurred: {e}")
+
+            elif input_value == '2':
+                EQUIPMENT_FILE = 'database/Equipment.csv'  # input file path and desired output file path
+                columns_to_keep = ['Item #', 'Item Info', 'ToolRoomName', 'ToolRoomID', 'CertificationID', 'CertificationID2']
+                cert = input("Enter Certification to find items list: ") 
+                try:
+                    # Read the CSV file into a DataFrame
+                    with open(EQUIPMENT_FILE, mode='r', newline='', encoding='utf-8') as infile:
+                        df = pd.read_csv(infile, encoding='utf-8')
+
+                    # Check if the specified column exists
+                    missing_columns = [col for col in columns_to_keep if col not in df.columns]
+                    if missing_columns:
+                        print(f"Error: The following columns are missing in the CSV file: {missing_columns}")
+                        return
+                    # Select only the desired columns
+                    df = df[columns_to_keep]
+
+                    if 'CertificationID' not in df.columns:
+                        print("Error: 'CertificationID' column not found in the CSV file.")
+                        return
+
+                    # Filter rows where the column matches the given value
+                    df_filtered = df[df['CertificationID'] == cert]
+                    df_filtered2 = df[df['CertificationID2'] == cert]
+
+                    # Check if any rows match the condition
+                    if df_filtered.empty:
+                        print(f"No rows found with '{'CertificationID'}' equal to '{cert}'.")
+                    else:
+                        print("Filtered rows:")
+                        print(df_filtered, df_filtered2)
+                except FileNotFoundError:
+                    print(f"Error: File '{EQUIPMENT_FILE}' not found.")
+                except Exception as e:
+                    print(f"An error occurred: {e}")
+
+            elif input_value == '3':
+                EQUIPMENT_FILE = 'database/Equipment.csv'  # input file path and desired output file path
+                item = input("Enter Item # to change certificate number: ")
+                cert1 = input("Enter First Certification ID enter 0 for none or N to skip: ")
+                cert2 = input("Enter Second Certification ID enter 0 for none or N to skip: ")
+                try:
+                    # Open the file for reading
+                    with open(EQUIPMENT_FILE, mode='r', newline='', encoding='utf-8') as infile:
+                        df = pd.read_csv(EQUIPMENT_FILE)
+                        df_filtered = df[df['Item #'] != item]
+                        # Save the DataFrame to CSV file
+
+                        if cert1 != 'N':
+                                df.loc[df['Item #'] == item, 'CertificationID'] = cert1
+
+                        if cert2 != 'N':
+                            df.loc[df['Item #'] == item, 'CertificationID2'] = cert2
+                        
+                    df_filtered.to_csv(EQUIPMENT_FILE, index=False)
+
+                    print(f"Item number '{item}' certificate has been updated.")
+                except FileNotFoundError:
+                    print(f"Error: The file '{EQUIPMENT_FILE}' was not found.")
+                except Exception as e:
+                    print(f"An unexpected error occurred: {e}")
+
+
+            else: 
+                print("\nInput cancelled or not available. Exiting program.")
+        except FileNotFoundError:
+            print(f"Error: The file '{EMPLOYEE_CERT_FILE}' was not found.")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
 
 
 #procurement functions Clayton
