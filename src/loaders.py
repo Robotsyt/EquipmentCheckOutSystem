@@ -334,13 +334,6 @@ def certificate_employee():
 def certificiate_equipment():
     pass
 
-#project manager functions   working on this
-def reports_menu():  # see reports.py file
-    pass
-
-# administration functions
-def live_reports(): # see reports.py file
-    pass
 
 #procurement functions Clayton
   # see inventory_tool_room function in equipment functions section
@@ -503,7 +496,7 @@ def inventory_materials(MATERIAL_LOC_FILE):
         if missing_columns:
             print(f"Error: The following columns are missing in the CSV file: {missing_columns}")
             return
-# Select only the desired columns
+    # Select only the desired columns
         df = df[columns_to_keep]
 
         # Validate inputs

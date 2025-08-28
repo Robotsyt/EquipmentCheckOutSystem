@@ -429,7 +429,4 @@ if __name__ == "__main__":
 
 
 
-# def equipment_in(ecos)
-# def equipmetn_out(ecos)
-# def reports(ecos)
-# def live_status(ecos)
+
