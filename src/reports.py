@@ -85,6 +85,69 @@ def live_reports(): # done
     
   
     
-def email_report(): # pending
-    print("")
+def email_report():
+    """Simulates compiling a report and 'emailing' it to stakeholders."""
+    def progress(msg, steps=3, delay=0.4):
+        print(msg, end="", flush=True)
+        for _ in range(steps):
+            time.sleep(delay)
+            print(".", end="", flush=True)
+        print()
+
+    print("\n===| Email Report |===")
+    time.sleep(0.5)
+
+    # Step 1: "Access" data sources (and lightly inspect them for realism)
+    sources = {
+        "Employees": "database/Employee.csv",
+        "Equipment": EQUIPMENT_FILE,
+        "Materials": MATERIAL_LOC_FILE,
+    }
+
+    counts = {}
+    for label, path in sources.items():
+        progress(f"Accessing {path}")
+        try:
+            with open(path, "r", newline="", encoding="utf-8") as f:
+                reader = csv.reader(f)
+                header = next(reader, None)
+                row_count = sum(1 for _ in reader)
+                counts[label] = {"rows": row_count, "columns": len(header) if header else 0}
+        except FileNotFoundError:
+            counts[label] = {"rows": 0, "columns": 0}
+            print(f"  ⚠️  {label} file not found at '{path}'. Continuing with defaults.")
+        except Exception as e:
+            counts[label] = {"rows": 0, "columns": 0}
+            print(f"  ⚠️  Could not read {label} ({e}). Continuing with defaults.")
+        time.sleep(0.3)
+
+    # Step 2: "Compile" a quick summary
+    progress("Compiling report data", steps=4, delay=0.3)
+    print("Summary:")
+    for label, meta in counts.items():
+        print(f"  - {label}: {meta['rows']} rows, {meta['columns']} columns")
+
+    # Step 3: "Prepare" recipients and subject
+    recipients_to = [
+        "operations@moroathletics.com",
+        "warehouse@moroathletics.com",
+    ]
+    recipients_cc = [
+        "auditor@moroathletics.com",
+        "finance@moroathletics.com",
+    ]
+    subject = "Daily Inventory & Materials Report (Simulation)"
+    print("\nComposed Email:")
+    print(f"  Subject: {subject}")
+    print(f"  To: {', '.join(recipients_to)}")
+    print(f"  Cc: {', '.join(recipients_cc)}")
+
+    # Step 4: "Send" the email
+    progress("Establishing secure SMTP connection")
+    print("  ✔ Connection established (mock)")
+    progress("Dispatching email to recipients", steps=5, delay=0.2)
+    print(f"✅ Email successfully sent to: {', '.join(recipients_to)}")
+    print(f"ℹ️  Cc recipients: {', '.join(recipients_cc)}")
+   
+
 
