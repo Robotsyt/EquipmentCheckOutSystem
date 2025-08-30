@@ -331,7 +331,7 @@ def individual_equipment_price(EQUIPMENT_FILE):
 def auditor_report():  # see reports.py file
     pass
 
-       #safety 
+#safety Clayton
 def certificate_employee():
     EMPLOYEE_FILE = 'database/Employee.csv'
     EMPLOYEE_CERT_FILE = 'database/EmployeeCertifications.csv'

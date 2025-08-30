@@ -1,4 +1,3 @@
-
 # Main file for the Equipment Check Out System (ECOS)
 # Imports standard and custom modules for system functionality
 import time  # For sleep/delays

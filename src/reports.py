@@ -4,6 +4,8 @@ import pandas as pd
 from loaders import EQUIPMENT_FILE, MATERIAL_LOC_FILE
 import time
 
+
+
 #CSV reader
 def load_data(filename):
     my_list = []  # Initialize an empty list to store rows
@@ -73,6 +75,7 @@ def live_reports(): # done
     first_name = None  # Initialize first_name
     last_name = None  # Initialize last_name
     new_list = load_data('database/Employee.csv')  # Load employee data from CSV
+
     for row in new_list:
         if len(row) > 0:
             found = True  # Set found flag to True (not used further)
@@ -81,6 +84,9 @@ def live_reports(): # done
             last_name = row[2] if len(row) > 2 else None    # Get last name (index 2)
             print("Employee ID, first name,    Last name")  # Print header
             print(f"{associate_id}   {first_name}     {last_name}")  # Print employee info
+
+
+
 def email_report():
     """Simulates compiling a report and 'emailing' it to stakeholders."""
     def progress(msg, steps=3, delay=0.4):
@@ -144,4 +150,3 @@ def email_report():
     progress("Dispatching email to recipients", steps=5, delay=0.2)  # Simulate sending
     print(f"✅ Email successfully sent to: {', '.join(recipients_to)}")  # Print success message
     print(f"ℹ️  Cc recipients: {', '.join(recipients_cc)}")  # Print Cc info
-   
