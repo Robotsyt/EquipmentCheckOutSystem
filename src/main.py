@@ -118,9 +118,7 @@ def maintenance():
         loaders.inventory_employee_tool(EQUIPMENT_FILE)
     elif input_value == "5":
         # Restart the program
-        import subprocess
-        subprocess.Popen([sys.executable] + sys.argv)
-        sys.exit()
+        os.execv(sys.executable, [sys.executable] + sys.argv)
     else:
         print("\nInput cancelled or not available. Exiting program.")
 
@@ -161,10 +159,8 @@ def hr():
                 print("Enter 0 to skip any field, unless otherwise noted.\n")
                 loaders.update_employee()
             elif input_value == "5":
-                # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit()    
+                 # Restart the program
+                os.execv(sys.executable, [sys.executable] + sys.argv)   
             else:
                 print("\nInput cancelled or not available. Exiting program.")
     
@@ -194,10 +190,8 @@ def finance():
             elif input_value == '3':
                 loaders.individual_equipment_price(EQUIPMENT_FILE)  # Call function for equipment price check
             elif input_value == "4":
-                # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit()
+                 # Restart the program
+                os.execv(sys.executable, [sys.executable] + sys.argv)
             else:
                 print("\nInput cancelled or not available. Exiting program.")  # Handle invalid input
         except (EOFError, KeyboardInterrupt):
@@ -222,10 +216,8 @@ def auditor():
             elif input_value == '2':
                 reports.auditor_report()  # Call function to generate auditor report
             elif input_value == "3":
-                # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit()
+                 # Restart the program
+                os.execv(sys.executable, [sys.executable] + sys.argv)
         except (EOFError, KeyboardInterrupt):
             print("\nInput cancelled or not available. Exiting program.")  # Handle input interruption
         break  # Exit the loop after one iteration
@@ -250,10 +242,8 @@ def safety(): #clayton
             elif input_value == '3':
                 loaders.certificate_equipment()  # Call function to update equipment certificate
             elif input_value == "4":
-                # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit()    
+                 # Restart the program
+                os.execv(sys.executable, [sys.executable] + sys.argv)    
             else: 
                 print("\nInput cancelled or not available. Exiting program.")  # Handle invalid input
         except (EOFError, KeyboardInterrupt):
@@ -278,10 +268,8 @@ def project_manager():
             elif input_value == '2':
                 reports.reports_menu()  # Call function to generate all reports
             elif input_value == "3":
-                # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit() 
+                 # Restart the program
+                os.execv(sys.executable, [sys.executable] + sys.argv)
             else:
                 print("\nInput cancelled or not available. Exiting program.")  # Handle invalid input
         except (EOFError, KeyboardInterrupt):
@@ -309,10 +297,8 @@ def administration():
             elif input_value == "3":
                 reports.email_report()  # Call function for email report
             elif input_value == "4":
-                # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit()
+                 # Restart the program
+                os.execv(sys.executable, [sys.executable] + sys.argv)
             else: 
                 print("\nInput cancelled or not available. Exiting program.")  # Handle invalid input
         except (EOFError, KeyboardInterrupt):
@@ -341,10 +327,8 @@ def procurement():
                 print("Enter 0 to skip any field, unless otherwise noted.\n")  # Prompt for skipping fields
                 loaders.update_inventory_tool(EQUIPMENT_FILE)  # Call function to update inventory
             elif input_value == "4":
-                # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit()
+                 # Restart the program
+                os.execv(sys.executable, [sys.executable] + sys.argv)
             else:    
                 print("\nInput cancelled or not available. Exiting program.")  # Handle invalid input
         except (EOFError, KeyboardInterrupt):
@@ -373,10 +357,8 @@ def warehouse():
             elif input == '3':
                 loaders.inventory_materials(MATERIAL_LOC_FILE)  # Call function for inventory report
             elif input_value == "4":
-                # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit()
+                 # Restart the program
+                os.execv(sys.executable, [sys.executable] + sys.argv)
             else:
                 print("\nInput cancelled or not available. Exiting program.")  # Handle invalid input
         except (EOFError, KeyboardInterrupt):
@@ -411,10 +393,8 @@ def equipment():
             elif input == '5':
                 loaders.equipment_status(EQUIPMENT_FILE='database/Equipment.csv')  # Call function for equipment status
             elif input_value == "6":
-                # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit()
+                 # Restart the program
+                os.execv(sys.executable, [sys.executable] + sys.argv)
             else:
                 print("\nInput cancelled or not available. Exiting program.")  # Handle invalid input
         except (EOFError, KeyboardInterrupt):
@@ -431,19 +411,20 @@ def info_tech():
         os.system('cls' if os.name == 'nt' else 'clear')  # Clear the terminal screen
         print(formatted_datetime)  # Display the current date and time
         print("===| IT |===")  # Print the IT menu header
-        print("1.  Maintenance")  # Option 1: Maintenance
-        print("2.  HR")  # Option 2: HR
-        print("3.  Finance")  # Option 3: Finance
-        print("4.  Auditor/Compliance")  # Option 4: Auditor/Compliance
-        print("5.  Safety")  # Option 5: Safety
-        print("6.  Project Manager")  # Option 6: Project Manager
-        print("7.  Administration")  # Option 7: Administration
-        print("8.  Procurement")  # Option 8: Procurement
-        print("9.  Warehouse")  # Option 9: Warehouse
-        print("10. Equipment")  # Option 10: Equipment
-        print("11. IT")  # Option 11: IT
-        print("12. Other")  # Option 12: Other
-        print("13. return to start of program")# Option : restart entire program
+        print("1.  Clock Out")  # Option 1: Maintenance
+        print("2.  Maintenance")  # Option 1: Maintenance
+        print("3.  HR")  # Option 2: HR
+        print("4.  Finance")  # Option 3: Finance
+        print("5.  Auditor/Compliance")  # Option 4: Auditor/Compliance
+        print("6.  Safety")  # Option 5: Safety
+        print("7.  Project Manager")  # Option 6: Project Manager
+        print("8.  Administration")  # Option 7: Administration
+        print("9.  Procurement")  # Option 8: Procurement
+        print("10.  Warehouse")  # Option 9: Warehouse
+        print("11. Equipment")  # Option 10: Equipment
+        print("12. IT")  # Option 11: IT
+        print("13. Other")  # Option 12: Other
+        print("14. return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
 
         try:
@@ -454,36 +435,34 @@ def info_tech():
 
     # Route to the correct function based on user selection
     if input_value == "1":
-        maintenance()                 # Call maintenance menu
-    elif input_value == "2":
-        hr()              # Call HR menu
-    elif input_value == "3":
-        finance()         # Call finance menu
-    elif input_value == "4":
-        auditor()         # Call auditor menu
-    elif input_value == "5":
-        safety()          # Call safety menu
-    elif input_value == "6":
-        project_manager() # Call project manager menu
-    elif input_value == "7":
-        administration()  # Call administration menu
-    elif input_value == "8":
-        procurement()     # Call procurement menu
-    elif input_value == "9":
-        warehouse()       # Call warehouse menu
-    elif input_value == "10":
-        equipment()       # Call equipment menu
-    elif input_value == "11":
-        info_tech()       # Call IT menu again
-    elif input_value == "12":
-        other()           # Call other menu
-    elif input_value == "13":
         print(f"{first_name} {last_name} has clocked out for the day.")  # Handle clock out
+    elif input_value == "2":
+        maintenance()                 # Call maintenance menu
+    elif input_value == "3":
+        hr()              # Call HR menu
     elif input_value == "4":
-                # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit()
+        finance()         # Call finance menu
+    elif input_value == "5":
+        auditor()         # Call auditor menu
+    elif input_value == "6":
+        safety()          # Call safety menu
+    elif input_value == "7":
+        project_manager() # Call project manager menu
+    elif input_value == "8":
+        administration()  # Call administration menu
+    elif input_value == "9":
+        procurement()     # Call procurement menu
+    elif input_value == "10":
+        warehouse()       # Call warehouse menu
+    elif input_value == "11":
+        equipment()       # Call equipment menu
+    elif input_value == "12":
+        info_tech()       # Call IT menu again
+    elif input_value == "13":
+        other()           # Call other menu
+    elif input_value == "14":
+         # Restart the program
+        os.execv(sys.executable, [sys.executable] + sys.argv)
     else:
         print("Invalid selection. Please try again.")  # Handle invalid input
         input("Press Enter to continue ...")  # Wait for user to acknowledge
@@ -510,9 +489,7 @@ def other():
                 loaders.add_work_order(WORK_ORDER_FILE)  # Call function to add work order
             elif input_value == "4":
                 # Restart the program
-                import subprocess
-                subprocess.Popen([sys.executable] + sys.argv)
-                sys.exit()
+                os.execv(sys.executable, [sys.executable] + sys.argv)
             else:
                 print("Invalid selection. Please try again.")  # Handle invalid input
                 input("Press Enter to continue ...")  # Wait for user to acknowledge

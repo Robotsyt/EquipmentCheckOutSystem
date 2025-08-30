@@ -104,7 +104,7 @@ def tool_location_update(EQUIPMENT_FILE):
 def inventory_employee_tool(EQUIPMENT_FILE):
     EQUIPMENT_FILE = 'database/Equipment.csv'  # Set the file path
     columns_to_keep = ['Item #', 'Item Info', 'ToolBoxJobID', 'EmployeeID']  # Columns to display
-    employee = input("Enter Employee ID: ")  # Prompt for employee ID
+    employee = int(input("Enter Employee ID: "))  # Prompt for employee ID
     try:
         # Read the CSV file into a DataFrame
         with open(EQUIPMENT_FILE, mode='r', newline='', encoding='utf-8') as infile:
@@ -161,7 +161,18 @@ def count_rows_csv(EMPLOYEE_FILE):
 
 # Add a new employee to the Employee file
 def add_employee(EMPLOYEE_FILE):
-    employID = count_rows_csv(EMPLOYEE_FILE)+1  # Get new employee ID
+    try:
+        df = pd.read_csv('database/Employee.csv', encoding='utf-8')
+        last_row = df.iloc[-1]
+        first_column_value = last_row.iloc[0]
+    except FileNotFoundError:
+        print("Error: The specified file was not found.")
+    except pd.errors.EmptyDataError:
+        print("Error: The CSV file is empty or invalid.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+    employID = first_column_value+1  # Get new employee ID
     fname = input("Enter First Name: ")  # Prompt for first name
     lname = input("Enter Last Name: ")  # Prompt for last name
     hiredate = input("Enter Hire Date as YYYY-MM-DD: ")  # Prompt for hire date

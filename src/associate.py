@@ -42,6 +42,7 @@ new_list = load_data('database/Employee.csv')  #calls load_data function to stor
 
 
 def id_validate():
+    
     id = input("Enter your personel ID: ")  # Prompt user to enter their personnel ID
     try:
         pin = int(id)  # Try to convert the input to an integer
@@ -76,5 +77,5 @@ def id_validate():
         print("Employee ID not found.")  # Handle not found case
     
     return associate_id, first_name, last_name, job_title  # Return employee info
-    associate_id, first_name, last_name, job_title = id_validate()  # (Unreachable, can be removed)
+    associate_id, first_name, last_name, job_title = id_validate() 
 # information that needs to be pushed to main.py
