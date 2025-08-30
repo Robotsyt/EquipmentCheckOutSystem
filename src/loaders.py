@@ -1,6 +1,9 @@
-import csv
-import pandas as pd
-# File paths
+
+# --- Imports and File Paths ---
+import csv  # For reading and writing CSV files
+import pandas as pd  # For data manipulation with DataFrames
+
+# File path constants for all required CSV files
 CLOCK_FILE = "database/Clock.csv"
 EMPLOYEE_FILE = "database/Employee.csv"
 JOB_INFO_FILE = "database/JobInfo.csv"
@@ -10,15 +13,18 @@ LOCATION_FILE = "database/LocationsList.csv"
 MATERIAL_LOC_FILE = "database/MaterialInventory.csv"
 TRANSACTIONS_FILE = 'database/Transactions.csv'
 WORK_ORDER_FILE = 'database/WorkOrder.csv'
-# maintenance functions
+
+# --- Maintenance Functions ---
 def equipment_in():
-    pass
-def equipment_out():
-    pass
-        
-def count_rows_trans(TRANSACTIONS_FILE): # this count pervious transactions
+    pass  # Placeholder for equipment check-in logic
+
+
+    pass  # Placeholder for equipment check-out logic
+
+# Count previous transactions in the Equipment file
+def count_rows_trans(TRANSACTIONS_FILE):
     try:
-        with open('database/Equipment.csv', mode='r') as file:
+        with open('database/Equipment.csv', mode='r') as file:  # Open the Equipment CSV file
             reader = csv.reader(file)
             row_count = sum(1 for row in reader)  # Count rows
         return row_count - 1  # Subtract 1 if the first row is a header
@@ -29,18 +35,19 @@ def count_rows_trans(TRANSACTIONS_FILE): # this count pervious transactions
         print(f"An error occurred: {e}")
         return 0
 
+# Add a new transaction to the Transactions file
 def transactions(TRANSACTIONS_FILE):
-    TRANSACTIONS_FILE = 'database/Transactions.csv'# add transaction
-    transactionID = count_rows_trans(TRANSACTIONS_FILE)+1  #this counts the transactions and adds 1
-    employee = input("Enter EmployeeID: ")
-    equiptoolitem = input("Enter Equip Tool Item ID 10 didgets or 0 for none: ")
-    material = input("Enter Material ID or 0 for none: ")
-    fromloc = input("Enter Current Location 'ToolRoom 1 or 2' 'Employee 3' 'Warehouse 4 or 5': ")
-    toloc = input("Enter New Location: ")
-    transtype = input("Enter 1 for check-in or 2 for check-out: ")
-    transdate = input("Enter Transaction Date as M/D/YYYY: ")
-    workorder = input("Enter Work Order ID: ")
-        #    Appends a new row to an existing CSV file.
+    TRANSACTIONS_FILE = 'database/Transactions.csv'  # Set the file path
+    transactionID = count_rows_trans(TRANSACTIONS_FILE)+1  # Get new transaction ID
+    employee = input("Enter EmployeeID: ")  # Prompt for Employee ID
+    equiptoolitem = input("Enter Equip Tool Item ID 10 didgets or 0 for none: ")  # Prompt for equipment/tool item ID
+    material = input("Enter Material ID or 0 for none: ")  # Prompt for material ID
+    fromloc = input("Enter Current Location 'ToolRoom 1 or 2' 'Employee 3' 'Warehouse 4 or 5': ")  # Prompt for current location
+    toloc = input("Enter New Location: ")  # Prompt for new location
+    transtype = input("Enter 1 for check-in or 2 for check-out: ")  # Prompt for transaction type
+    transdate = input("Enter Transaction Date as M/D/YYYY: ")  # Prompt for transaction date
+    workorder = input("Enter Work Order ID: ")  # Prompt for work order ID
+    # Create a new transaction row
     new_transaction_row = [transactionID, employee, equiptoolitem, material, fromloc, toloc, transtype, transdate, workorder]
 
     try:
@@ -52,23 +59,24 @@ def transactions(TRANSACTIONS_FILE):
     except Exception as e:
         print(f"Error: {e}")
 
+# Update tool/equipment location and condition in Equipment file
 def tool_location_update(EQUIPMENT_FILE):
-    EQUIPMENT_FILE = 'database/Equipment.csv'
-    item = int(input("Enter Item Number: "))
-    toolroom = input("Enter New Tool Room Name: ")
-    employee = int(input("Enter EmployeeID: "))
-    toolroomid = int(input("Enter New Tool Room ID: "))
-    condition = input("Enter New Condition: ")
+    EQUIPMENT_FILE = 'database/Equipment.csv'  # Set the file path
+    item = int(input("Enter Item Number: "))  # Prompt for item number
+    toolroom = input("Enter New Tool Room Name: ")  # Prompt for new tool room name
+    employee = int(input("Enter EmployeeID: "))  # Prompt for employee ID
+    toolroomid = int(input("Enter New Tool Room ID: "))  # Prompt for new tool room ID
+    condition = input("Enter New Condition: ")  # Prompt for new condition
     try:
-        # Read the CSV file into memory
+        # Read the CSV file into memory as a DataFrame
         with open(EQUIPMENT_FILE, mode='r', newline='', encoding='utf-8') as infile:
             df = pd.read_csv(infile, encoding='utf-8')
 
-        # Validate inputs
+        # Validate inputs and filter for the item
         df_filtered = df[df['Item #'] == item]
         print(df_filtered)
         
-        # Update the specific cell
+        # Update the specific columns if new values are provided
         if toolroom != '0':
             df.loc[df['Item #'] == item, 'ToolRoomName'] = toolroom
 
@@ -82,8 +90,8 @@ def tool_location_update(EQUIPMENT_FILE):
 
         if condition != '0':
             df.loc[df['Item #'] == item, 'Condition'] = condition
-            
-            # Save the DataFrame to CSV file
+        
+        # Save the updated DataFrame to the CSV file
         df.to_csv(EQUIPMENT_FILE, index=False)
 
         print(f"Successfully updated item number {item}, column '{'Condition'}' with value '{condition}'.")
@@ -92,16 +100,17 @@ def tool_location_update(EQUIPMENT_FILE):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+# Show all tools assigned to a specific employee
 def inventory_employee_tool(EQUIPMENT_FILE):
-    EQUIPMENT_FILE = 'database/Equipment.csv'  # input file path and desired output file path
-    columns_to_keep = ['Item #', 'Item Info', 'ToolBoxJobID', 'EmployeeID']
-    employee = input("Enter Employee ID: ") # 
+    EQUIPMENT_FILE = 'database/Equipment.csv'  # Set the file path
+    columns_to_keep = ['Item #', 'Item Info', 'ToolBoxJobID', 'EmployeeID']  # Columns to display
+    employee = input("Enter Employee ID: ")  # Prompt for employee ID
     try:
         # Read the CSV file into a DataFrame
         with open(EQUIPMENT_FILE, mode='r', newline='', encoding='utf-8') as infile:
             df = pd.read_csv(infile, encoding='utf-8')
 
-        # Check if the specified column exists
+        # Check if the specified columns exist
         missing_columns = [col for col in columns_to_keep if col not in df.columns]
         if missing_columns:
             print(f"Error: The following columns are missing in the CSV file: {missing_columns}")
@@ -113,10 +122,10 @@ def inventory_employee_tool(EQUIPMENT_FILE):
             print("Error: 'Item #' column not found in the CSV file.")
             return
 
-        # Filter rows where the column matches the given value
+        # Filter rows where the EmployeeID matches the input
         df_filtered = df[df['EmployeeID'] == employee]
 
-        # Check if any rows match the item
+        # Check if any rows match the employee
         if df_filtered.empty:
             print(f"No rows found with '{'EmployeeID'}' equal to '{employee}'.")
         else:
@@ -128,15 +137,18 @@ def inventory_employee_tool(EQUIPMENT_FILE):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-
 #hr functions antonio
+
+# --- HR Functions ---
+# Paginate a DataFrame (not fully implemented)
 def paginate(df, page_size=10):
-    total_pages = (len(df) + page_size - 1) // page_size
-    current_page = 0
-# count employees
-def count_rows_csv(EMPLOYEE_FILE): # this shows before main file function
+    total_pages = (len(df) + page_size - 1) // page_size  # Calculate total number of pages
+    current_page = 0  # Start at the first page
+
+# Count the number of employees in the Employee file
+def count_rows_csv(EMPLOYEE_FILE):
     try:
-        with open('database/Employee.csv', mode='r') as file:
+        with open('database/Employee.csv', mode='r') as file:  # Open the Employee CSV file
             reader = csv.reader(file)
             row_count = sum(1 for row in reader)  # Count rows
         return row_count - 1  # Subtract 1 if the first row is a header
@@ -147,18 +159,17 @@ def count_rows_csv(EMPLOYEE_FILE): # this shows before main file function
         print(f"An error occurred: {e}")
         return 0
 
-# add employee
+# Add a new employee to the Employee file
 def add_employee(EMPLOYEE_FILE):
-    # New row to append (list of values)
-    employID = count_rows_csv(EMPLOYEE_FILE)+1  #this counts the employees and adds 1
-    fname = input("Enter First Name: ")
-    lname = input("Enter Last Name: ")
-    hiredate = input("Enter Hire Date as YYYY-MM-DD: ")
-    jobtitle = input("Enter Job Title ID 1-112: ")
-    phone = input("Enter Phone Number as (###)###-####: ")
-    email = input("Enter Email Address: ")
-    manager = input("Enter Manager ID: ")
-    #    Appends a new row to an existing CSV file.
+    employID = count_rows_csv(EMPLOYEE_FILE)+1  # Get new employee ID
+    fname = input("Enter First Name: ")  # Prompt for first name
+    lname = input("Enter Last Name: ")  # Prompt for last name
+    hiredate = input("Enter Hire Date as YYYY-MM-DD: ")  # Prompt for hire date
+    jobtitle = input("Enter Job Title ID 1-112: ")  # Prompt for job title ID
+    phone = input("Enter Phone Number as (###)###-####: ")  # Prompt for phone number
+    email = input("Enter Email Address: ")  # Prompt for email address
+    manager = input("Enter Manager ID: ")  # Prompt for manager ID
+    # Create a new employee row
     new_employee_row = [employID, fname, lname, hiredate, jobtitle, phone, email, manager]
 
     try:
@@ -170,12 +181,12 @@ def add_employee(EMPLOYEE_FILE):
     except Exception as e:
         print(f"Error: {e}")
 
-# remove employee
-def remove_employee(EMPLOYEE_FILE): #this function removes employees by EmployeeID
-    EMPLOYEE_FILE = 'database/Employee.csv'  # input file path and desired output file path
-    removeemployeeID = int(input("Enter Employee ID to remove: ")) # value to remove
+# Remove an employee from the Employee file by EmployeeID
+def remove_employee(EMPLOYEE_FILE):
+    EMPLOYEE_FILE = 'database/Employee.csv'  # Set the file path
+    removeemployeeID = int(input("Enter Employee ID to remove: "))  # Prompt for Employee ID to remove
     try:
-            # Open the file for reading
+        # Open the file for reading
         with open(EMPLOYEE_FILE, mode='r', newline='', encoding='utf-8') as infile:
             df = pd.read_csv(EMPLOYEE_FILE)
 
@@ -190,28 +201,26 @@ def remove_employee(EMPLOYEE_FILE): #this function removes employees by Employee
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
-
-# update employee
+# Update an employee's information in the Employee file
 def update_employee():
-    EMPLOYEE_FILE = 'database/Employee.csv'  # input file path and desired output file path
-    employeeID = int(input("Enter Employee ID to update: ")) # employeeID to update
-    fname = input("Enter First Name: ")
-    lname = input("Enter Last Name: ")
-    hiredate = input("Enter Hire Date as YYYY-MM-DD: ")
-    jobtitle = int(input("Enter Job Title ID 1-112: "))
-    phone = input("Enter Phone Number as (###)###-####: ")
-    email = input("Enter Email Address: ")
-    manager = int(input("Enter Manager ID: "))
+    EMPLOYEE_FILE = 'database/Employee.csv'  # Set the file path
+    employeeID = int(input("Enter Employee ID to update: "))  # Prompt for Employee ID to update
+    fname = input("Enter First Name: ")  # Prompt for first name
+    lname = input("Enter Last Name: ")  # Prompt for last name
+    hiredate = input("Enter Hire Date as YYYY-MM-DD: ")  # Prompt for hire date
+    jobtitle = int(input("Enter Job Title ID 1-112: "))  # Prompt for job title ID
+    phone = input("Enter Phone Number as (###)###-####: ")  # Prompt for phone number
+    email = input("Enter Email Address: ")  # Prompt for email address
+    manager = int(input("Enter Manager ID: "))  # Prompt for manager ID
     try:
-            # Open the file for reading
+        # Open the file for reading
         with open(EMPLOYEE_FILE, mode='r', newline='', encoding='utf-8') as infile:
             df = pd.read_csv(EMPLOYEE_FILE)
             
             # Select rows where 'EmployeeID' column equals provided value
             df_filtered = df[df['EmployeeID'] == employeeID]
             print(df_filtered)
-            # Update the row with new values
-            # Update the specific cell
+            # Update the row with new values if provided
             if fname != '0':
                 df.loc[df['EmployeeID'] == employeeID, 'F_Name'] = fname
 
@@ -233,7 +242,7 @@ def update_employee():
             if manager != '0':
                 df.loc[df['EmployeeID'] == employeeID, 'ManagerID'] = manager
 
-            # Save the DataFrame to CSV file
+            # Save the updated DataFrame to the CSV file
             df.to_csv(EMPLOYEE_FILE, index=False)
 
         print(f"Employee number '{employeeID}' has been updated.")
@@ -536,7 +545,7 @@ def equipment_status(EQUIPMENT_FILE='database/Equipment.csv'): #see inventory_co
         print(f"An error occurred: {e}")
 
 
-        
+
 
 def tool_condition_update(EQUIPMENT_FILE):
     EQUIPMENT_FILE = 'database/Equipment.csv'
