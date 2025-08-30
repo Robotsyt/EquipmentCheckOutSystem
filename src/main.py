@@ -86,7 +86,7 @@ def maintenance():
         print("2.  Equipment Check In")
         print("3.  Equipment Check Out")
         print("4.  Employee Personal Equipment Inventory")
-        print("5. return to start of program")# Option : restart entire program
+        print("5.  return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
         try:
             # Prompt user for menu selection
@@ -140,7 +140,7 @@ def hr():
         print("2.  Add Employee")
         print("3.  Remove Employee")
         print("4.  Update Employee information")
-        print("5. return to start of program")
+        print("5.  return to start of program")
         input_value = None  # Initialize input_value
         try:
             # Prompt user for menu selection
@@ -183,7 +183,7 @@ def finance():
         print("1.  Clock out")  # Option 1: Clock out
         print("2.  Lost and Damage Equipment Report")  # Option 2: Lost and Damage Equipment Report
         print("3.  Equipment Price Checker")  # Option 3: Equipment Price Checker
-        print("4. return to start of program")# Option : restart entire program
+        print("4.  return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
         try:
             input_value = input("Select an option: ")  # Prompt user for menu selection
@@ -213,7 +213,7 @@ def auditor():
         print("===| Auditor |===")  # Print the Auditor menu header
         print("1.  Clock out")  # Option 1: Clock out
         print("2.  Generate All Reports")  # Option 2: Generate all reports
-        print("3. return to start of program")# Option : restart entire program
+        print("3.  return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
         try:
             input_value = input("Select an option: ")  # Prompt user for menu selection
@@ -239,7 +239,7 @@ def safety(): #clayton
         print("1.  Clock out")  # Option 1: Clock out
         print("2.  Certificate Employee Update")  # Option 2: Certificate update for employee
         print("3.  Certificate Equipment Update")  # Option 3: Certificate update for equipment
-        print("4. return to start of program")# Option : restart entire program
+        print("4.  return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
         try:
             input_value = input("Select an option: ")  # Prompt user for menu selection
@@ -269,7 +269,7 @@ def project_manager():
         print("===| Manager |===")  # Print the Manager menu header
         print("1.  Clock out")  # Option 1: Clock out
         print("2.  Generate All Reports")  # Option 2: Generate all reports
-        print("3. return to start of program")# Option : restart entire program
+        print("3.  return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
         try:
             input_value = input("Select an option: ")  # Prompt user for menu selection
@@ -298,7 +298,7 @@ def administration():
         print("1.  Clock out")  # Option 1: Clock out
         print("2.  Live Status Report")  # Option 2: Live status report
         print("3.  Email report")  # Option 3: Email report
-        print("4. return to start of program")# Option : restart entire program
+        print("4.  return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
         try:
             input_value = input("Select an option: ")  # Prompt user for menu selection
@@ -329,7 +329,7 @@ def procurement():
         print("1.  Clock out")  # Option 1: Clock out
         print("2.  Inventory Report")  # Option 2: Inventory report
         print("3.  Update Inventory tools/equipment")  # Option 3: Update inventory tools/equipment
-        print("4. return to start of program")# Option : restart entire program
+        print("4.  return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
         try:
             input_value = input("Select an option: ")  # Prompt user for menu selection
@@ -361,7 +361,7 @@ def warehouse():
         print("1.  Clock out")  # Option 1: Clock out
         print("2.  Materials Update")  # Option 2: Materials update
         print("3.  Inventory Report")  # Option 3: Inventory report
-        print("4. return to start of program")# Option : restart entire program
+        print("4.  return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
         try:
             input_value = input("Select an option: ")  # Prompt user for menu selection
@@ -396,7 +396,7 @@ def equipment():
         print("3.  Equipment Inventory")  # Option 3: Equipment inventory
         print("4.  Update Equipment Condition")  # Option 4: Update equipment condition
         print("5.  Equipment Status")  # Option 5: Equipment status
-        print("6. return to start of program")# Option : restart entire program
+        print("6.  return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
         try:
             input_value = input("Select an option: ")  # Prompt user for menu selection
@@ -498,7 +498,7 @@ def other():
         print("===| Temporary Contract |===")  # Print the Temporary Contract menu header
         print("1.  Clock out")  # Option 1: Clock out
         print("2.  Work Order")  # Option 2: Work order
-        print("3. return to start of program")# Option : restart entire program
+        print("3.  return to start of program")# Option : restart entire program
         input_value = None  # Initialize input_value to None
         try:
             input_value = input("Select an option: ")  # Prompt user for menu selection
